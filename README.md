@@ -16,6 +16,9 @@ GPG agent configured for SSH authentication via hardware security key.
 ### Tokyo Night OLED Theme
 Custom theme with true black (#000000) backgrounds for OLED displays.
 
+### Starship Prompt
+Tokyo Night color palette with command duration display.
+
 ## License
 
 Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).
