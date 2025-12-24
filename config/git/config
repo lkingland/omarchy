@@ -6,7 +6,7 @@
 	ci = commit
 	st = status
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [pull]
 	rebase = true 			 # Rebase (instead of merge) on pull
 [push]
@@ -17,6 +17,7 @@
 	mnemonicPrefix = true    # More intuitive refs in diff output
 [commit]
 	verbose = true           # Include diff comment in commit message template
+	gpgsign = true           # Sign commits with GPG key
 [column]
 	ui = auto 			     # Output in columns when possible
 [branch]
@@ -26,3 +27,6 @@
 [rerere]
 	enabled = true           # Record and reuse conflict resolutions
 	autoupdate = true        # Apply stored conflict resolutions automatically
+[user]
+	name = Luke Kingland
+	email = luke@lukekingland.com
