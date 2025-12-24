@@ -22,6 +22,9 @@ Tokyo Night color palette with command duration display.
 ### Tmux
 Terminal multiplexer with Tokyo Night theme, vim-tmux-navigator, and session persistence.
 
+### Vim-style Window Navigation
+Hyprland keybindings: `SUPER+HJKL` for focus, `SUPER+SHIFT+HJKL` for movement. Defaults `SUPER+J` (toggle split) and `SUPER+K` (keybindings) relocated to `SUPER+CTRL+J/K`.
+
 ## License
 
 Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).
