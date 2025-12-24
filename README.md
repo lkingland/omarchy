@@ -13,6 +13,9 @@ Replaces bash with [Nushell](https://www.nushell.sh/) featuring vi mode, structu
 ### YubiKey SSH Authentication
 GPG agent configured for SSH authentication via hardware security key.
 
+### Tokyo Night OLED Theme
+Custom theme with true black (#000000) backgrounds for OLED displays.
+
 ## License
 
 Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).
