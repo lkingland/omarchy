@@ -1,8 +1,8 @@
 # Omarchy
 
-Omarchy is a beautiful, modern & opinionated Linux distribution by DHH.
+This is a personalized fork of [omarchy.org](https://omarchy.org).
 
-Read more at [omarchy.org](https://omarchy.org).
+## Customizations
 
 ## License
 
