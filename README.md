@@ -7,6 +7,9 @@ This is a personalized fork of [omarchy.org](https://omarchy.org).
 ### Shell: Nushell
 Replaces bash with [Nushell](https://www.nushell.sh/) featuring vi mode, structured data pipelines, and fuzzy completion. Native `ls` for tabular output; eza available via `lse`, `lle`, etc.
 
+### YubiKey SSH Authentication
+GPG agent configured for SSH authentication via hardware security key.
+
 ## License
 
 Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).
