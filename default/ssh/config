@@ -1,0 +1,5 @@
+# Update GPG agent TTY before SSH connections (for YubiKey pinentry)
+Match host * exec "gpg-connect-agent UPDATESTARTUPTTY /bye"
+
+# Apparently SSH connections need a keepalive
+ServerAliveInterval 30
