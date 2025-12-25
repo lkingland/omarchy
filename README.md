@@ -19,6 +19,9 @@ Custom theme with true black (#000000) backgrounds for OLED displays.
 ### Starship Prompt
 Tokyo Night color palette with command duration display.
 
+### Tmux
+Terminal multiplexer with Tokyo Night theme, vim-tmux-navigator, and session persistence.
+
 ## License
 
 Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).
