@@ -1,0 +1,1 @@
+/home/drekar/.config/omarchy/current/theme/neovim.lua
