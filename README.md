@@ -2,6 +2,26 @@
 
 This is a personalized fork of [omarchy.org](https://omarchy.org).
 
+
+## Customizing
+
+Customizations are made mostly to dotfiles in ./config
+They are applied to the system with:
+  ./config/config.sh
+
+## Updating
+
+Use the omarchy-sync script which
+- Pulls upstream changes
+- Rebases on upstream
+- Allows opportunity to resolve conflicts
+- Runs the upstream system updater omarchy-update
+
+## Bugs/Inconveniences
+
+- Applying config breaks Moonlight stream
+
+
 ## Customizations
 
 ### Git Config
