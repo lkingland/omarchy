@@ -45,6 +45,9 @@ Terminal multiplexer with Tokyo Night theme, vim-tmux-navigator, and session per
 ### Vim-style Window Navigation
 Hyprland keybindings: `SUPER+HJKL` for focus, `SUPER+SHIFT+HJKL` for movement. Defaults `SUPER+J` (toggle split) and `SUPER+K` (keybindings) relocated to `SUPER+CTRL+J/K`.
 
+### Waybar
+Status bar positioned at bottom with auto-hide, plus RAM and disk usage indicators.
+
 ## License
 
 Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).

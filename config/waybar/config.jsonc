@@ -1,9 +1,10 @@
 {
   "reload_style_on_change": true,
   "layer": "top",
-  "position": "top",
+  "position": "bottom",
   "spacing": 0,
   "height": 26,
+  "mode": "hide",
   "modules-left": ["custom/omarchy", "hyprland/workspaces"],
   "modules-center": ["clock", "custom/update", "custom/voxtype", "custom/screenrecording-indicator"],
   "modules-right": [
@@ -12,6 +13,8 @@
     "network",
     "pulseaudio",
     "cpu",
+    "memory",
+    "disk",
     "battery"
   ],
   "hyprland/workspaces": {
@@ -56,9 +59,21 @@
 
   "cpu": {
     "interval": 5,
-    "format": "󰍛",
+    "format": "CPU {usage}%",
     "on-click": "omarchy-launch-or-focus-tui btop",
     "on-click-right": "alacritty"
+  },
+  "memory": {
+    "interval": 30,
+    "format": "RAM {percentage}%",
+    "tooltip-format": "{used:0.1f}GB / {total:0.1f}GB",
+    "on-click": "omarchy-launch-or-focus-tui btop"
+  },
+  "disk": {
+    "interval": 60,
+    "format": "DISK {percentage_used}%",
+    "path": "/",
+    "tooltip-format": "{used} / {total} ({percentage_free}% free)"
   },
   "clock": {
     "format": "{:L%A %H:%M}",
