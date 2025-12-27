@@ -31,6 +31,8 @@
 }
 
 #cpu,
+#memory,
+#disk,
 #battery,
 #pulseaudio,
 #custom-omarchy,
