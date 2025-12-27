@@ -2,6 +2,23 @@
 
 This is a personalized fork of [omarchy.org](https://omarchy.org).
 
+
+## Customizing
+
+Customizations are made mostly to dotfiles in ./config
+They are applied to the system with:
+  ./config/config.sh
+
+## Updating
+
+jj git remote -v
+jj rebase -s {changes} -d {remote}
+
+## Bugs/Inconveniences
+
+- Applying config breaks Moonlight stream
+
+
 ## Customizations
 
 ### Shell: Nushell
