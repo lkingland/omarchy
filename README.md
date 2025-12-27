@@ -52,7 +52,7 @@ Status bar positioned at bottom with auto-hide, plus RAM and disk usage indicato
 Faster key repeat, touchpad gestures, workspace navigation (SUPER+Q/E), no shadows, smart gaps.
 
 ### Neovim
-LazyVim-based configuration imported from omarchy-nvim-setup for source control.
+LazyVim config with custom keymaps, Harpoon, Go debugging, Obsidian, and vim-tmux-navigator.
 
 ## License
 
