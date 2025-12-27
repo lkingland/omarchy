@@ -48,6 +48,9 @@ Hyprland keybindings: `SUPER+HJKL` for focus, `SUPER+SHIFT+HJKL` for movement. D
 ### Waybar
 Status bar positioned at bottom with auto-hide, plus RAM and disk usage indicators.
 
+### Hyprland
+Faster key repeat, touchpad gestures, workspace navigation (SUPER+Q/E), no shadows, smart gaps.
+
 ## License
 
 Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).
