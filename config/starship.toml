@@ -1,9 +1,28 @@
-# Starship prompt - Tokyo Night theme
+# Starship prompt
+# Tokyo Night theme with jj/git, kubernetes, and hostname support
 palette = "tokyonight"
 
 add_newline = true
-command_timeout = 200
-format = "$directory$git_branch$git_status$cmd_duration$character"
+command_timeout = 500
+
+# Two-line prompt: info on line 1, input on line 2
+# Right prompt: kubernetes context + hostname (when SSH'd)
+format = """
+$directory\
+$custom\
+$git_branch\
+$git_status\
+$cmd_duration\
+$fill\
+$kubernetes\
+$hostname\
+$line_break\
+$character"""
+
+# Alternative: single line (uncomment if preferred)
+# format = "$directory$custom$git_branch$git_status$cmd_duration$character"
+
+right_format = ""
 
 [palettes.tokyonight]
 cyan = "#7dcfff"
@@ -13,38 +32,156 @@ green = "#9ece6a"
 orange = "#ff9e64"
 red = "#f7768e"
 yellow = "#e0af68"
+fg = "#c0caf5"
+fg_dark = "#a9b1d6"
+bg_dark = "#1a1b26"
+comment = "#565f89"
 
+# -------------------------
+# Prompt character (line 2)
+# -------------------------
 [character]
-error_symbol = "[✗](bold red)"
 success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold magenta)"
 
+# -------------------------
+# Directory
+# -------------------------
 [directory]
-truncation_length = 2
+truncation_length = 3
 truncation_symbol = "…/"
 style = "blue"
 repo_root_style = "bold blue"
 repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+read_only = " 󰌾"
+read_only_style = "red"
+home_symbol = "~"
 
+# -------------------------
+# Jujutsu (jj) - custom module, takes priority over git
+# Shows: branch/change @ commit, with status indicators
+# -------------------------
+[custom.jj]
+description = "Jujutsu VCS status"
+command = "jj log -r @ --no-graph -T 'concat(if(bookmarks, bookmarks ++ \" \"), change_id.shortest(4), if(conflict, \" ⚠\"), if(empty, \" ∅\"), if(divergent, \" ⑂\"))' 2>/dev/null"
+detect_folders = [".jj"]
+shell = "bash"
+style = "magenta"
+format = "[$output]($style) "
+
+# -------------------------
+# Git branch (shown in non-jj repos, or alongside jj in colocated repos)
+# In colocated repos, this shows the underlying git branch which can be useful
+# -------------------------
 [git_branch]
-format = "[$branch]($style) "
-style = "italic magenta"
+format = "[$symbol$branch(:$remote_branch)]($style) "
+style = "italic fg_dark"
+symbol = ""
+ignore_branches = []
 
+# -------------------------
+# Git status
+# -------------------------
 [git_status]
-format = '[$all_status]($style)'
+format = '([$all_status$ahead_behind]($style))'
 style = "cyan"
-ahead = "⇡${count} "
-diverged = "⇕⇡${ahead_count}⇣${behind_count} "
-behind = "⇣${count} "
-conflicted = " "
-up_to_date = " "
-untracked = "? "
-modified = " "
-stashed = ""
-staged = ""
-renamed = ""
-deleted = ""
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+conflicted = "="
+untracked = "?"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+stashed = "\\$"
 
+# -------------------------
+# Command duration (only if >2s)
+# -------------------------
 [cmd_duration]
 min_time = 2000
 format = "[$duration]($style) "
 style = "yellow"
+show_notifications = false
+
+# -------------------------
+# Fill (pushes right-side content to the right)
+# -------------------------
+[fill]
+symbol = " "
+
+# -------------------------
+# Kubernetes context (right side)
+# Only shows when kubeconfig exists and context is set
+# -------------------------
+[kubernetes]
+disabled = false
+format = '[$symbol$context( \($namespace\))]($style) '
+style = "cyan"
+symbol = "⎈ "
+detect_files = []
+detect_folders = []
+# Show specific contexts differently
+contexts = []
+
+[kubernetes.context_aliases]
+# Add aliases for long context names, e.g.:
+# "arn:aws:eks:us-east-1:123456789:cluster/my-cluster" = "my-cluster"
+
+# -------------------------
+# Hostname (right side, only when SSH'd)
+# -------------------------
+[hostname]
+ssh_only = true
+format = "[$ssh_symbol$hostname]($style)"
+style = "bold fg_dark"
+ssh_symbol = " "
+disabled = false
+
+# -------------------------
+# Status (exit code) - encoded in character color, but can show code
+# -------------------------
+[status]
+disabled = true
+format = '[\[$status\]]($style) '
+style = "red"
+
+# -------------------------
+# Jobs (background jobs indicator)
+# -------------------------
+[jobs]
+disabled = false
+symbol = "✦"
+style = "bold blue"
+threshold = 1
+format = "[$symbol$number]($style) "
+
+# -------------------------
+# Language/tool versions - only show when relevant
+# Minimalist: only show if project files detected
+# -------------------------
+[nodejs]
+disabled = true
+
+[python]
+disabled = true
+
+[rust]
+disabled = true
+
+[golang]
+disabled = true
+
+# -------------------------
+# Cloud contexts (disabled by default, enable as needed)
+# -------------------------
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[azure]
+disabled = true
