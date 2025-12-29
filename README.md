@@ -57,6 +57,9 @@ LazyVim config with custom keymaps, Harpoon, Go debugging, Obsidian, and vim-tmu
 ### Carapace
 Rich shell completions for 1000+ commands, bridged from zsh/fish/bash.
 
+### AI Agents
+CLAUDE.md with project context and jj workflow instructions for AI coding assistants.
+
 ## License
 
 Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).
