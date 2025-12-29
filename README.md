@@ -54,6 +54,9 @@ Faster key repeat, touchpad gestures, workspace navigation (SUPER+Q/E), no shado
 ### Neovim
 LazyVim config with custom keymaps, Harpoon, Go debugging, Obsidian, and vim-tmux-navigator.
 
+### Carapace
+Rich shell completions for 1000+ commands, bridged from zsh/fish/bash.
+
 ## License
 
 Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).

@@ -259,3 +259,6 @@ source ~/.cache/zoxide.nu
 
 # Starship prompt
 source ~/.cache/starship.nu
+
+# Carapace completions (rich completions for 1000+ commands)
+source $"($nu.cache-dir)/carapace.nu"

@@ -32,3 +32,8 @@ $env.LESS = "-R --no-init --quit-if-one-screen"
 
 # Kubernetes editor
 $env.KUBE_EDITOR = "nvim"
+
+# Carapace completion - bridges completions from multiple shells
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
+mkdir ($nu.cache-dir)
+carapace _carapace nushell | save --force $"($nu.cache-dir)/carapace.nu"
