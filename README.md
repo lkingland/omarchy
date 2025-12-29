@@ -37,7 +37,7 @@ GPG agent configured for SSH authentication via hardware security key.
 Custom theme with true black (#000000) backgrounds for OLED displays.
 
 ### Starship Prompt
-Tokyo Night color palette with command duration display.
+Two-line prompt with jj/git status, kubernetes context, and Tokyo Night colors.
 
 ### Tmux
 Terminal multiplexer with Tokyo Night theme, vim-tmux-navigator, and session persistence.

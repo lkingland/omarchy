@@ -1,0 +1,2 @@
+#!/bin/bash
+jj log -r @ --no-graph -T 'concat(if(bookmarks, bookmarks ++ " "), change_id.shortest(4), "@", commit_id.shortest(6), if(conflict, " ⚠"), if(empty, " ∅"), if(divergent, " ⑂"))' 2>/dev/null

@@ -133,7 +133,7 @@ def ff [...args: string] {
 # -------------------------
 alias ga = git add
 alias gb = git branch
-alias gba = git fetch -ap; git branch -a
+alias gba = do { git fetch -ap; git branch -a }
 alias gc = git commit
 alias gca = git commit -a
 alias gco = git checkout
