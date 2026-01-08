@@ -21,7 +21,6 @@ Use the omarchy-sync script which
 
 - Applying config breaks Moonlight stream
 
-
 ## Customizations
 
 ### Git Config
