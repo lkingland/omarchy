@@ -262,3 +262,7 @@ source ~/.cache/starship.nu
 
 # Carapace completions (rich completions for 1000+ commands)
 source $"($nu.cache-dir)/carapace.nu"
+
+# Atuin (fish-style history with fuzzy search)
+# Ctrl+R for fuzzy search, deduplication, shared history
+source ~/.cache/atuin.nu
