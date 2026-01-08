@@ -102,22 +102,20 @@ alias '....' = cd ../../..
 # -------------------------
 # Aliases - ls variants
 # -------------------------
-# Nushell native ls (tabular display)
-alias l = ls -l
-alias ll = ls -la
-alias lsa = ls -la
-alias la = ls -a
+# Eza (compact, readable output)
+alias l = eza -l --icons --git
+alias ll = eza -la --icons --git
+alias lla = eza -la --icons --git
+alias la = eza -a --icons
 
-# Tree commands (eza, no nushell equivalent)
+# Eza tree variants
 alias lt = eza --tree --level=2 --long --icons --git
 alias lta = eza --tree --level=2 --long --icons --git -a
 alias ltree = eza --tree --level=2 --icons --git
 
-# Eza variants (e suffix for enhanced icons/git)
-alias lse = eza -l --icons --git --group-directories-first
-alias le = eza -l --icons --git
-alias lle = eza -la --icons --git
-alias lsae = eza -la --icons --git --group-directories-first
+# Nushell native ls (for structured data / piping with | where, etc.)
+# Use `ls` directly for native output
+alias lsa = ls -a
 
 # Fuzzy finder with bat preview
 def ff [...args: string] {
