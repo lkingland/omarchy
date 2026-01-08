@@ -27,6 +27,9 @@ $env.XDG_CONFIG_HOME = $"($env.HOME)/.config"
 $env.XDG_DATA_HOME = $"($env.HOME)/.local/share"
 $env.XDG_CACHE_HOME = $"($env.HOME)/.cache"
 
+# Omarchy paths (required by omarchy-version and other scripts)
+$env.OMARCHY_PATH = $"($env.HOME)/.local/share/omarchy"
+
 # Pager settings (better git diff, man pages, etc.)
 $env.LESS = "-R --no-init --quit-if-one-screen"
 
