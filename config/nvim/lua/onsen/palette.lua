@@ -1,0 +1,83 @@
+-- Onsen colorscheme palette
+-- OLED-optimized green theme with blue structure, orange data
+
+local M = {}
+
+M.colors = {
+  -- Backgrounds
+  bg = "#000000",              -- OLED black
+  bg_dark = "#000000",         -- Sidebars
+  bg_float = "#0A1A12",        -- Subtle green tint for floats
+  bg_highlight = "#0A1A12",    -- Cursor line
+  bg_popup = "#0A1A12",        -- Completion menu
+  bg_search = "#00D67E",       -- Search highlight bg
+  bg_visual = "#1A3A2A",       -- Visual selection
+
+  -- Foregrounds
+  fg = "#E0E0E0",              -- Primary text
+  fg_dark = "#B0B0B0",         -- Dimmed text (operators, punctuation)
+  fg_gutter = "#606060",       -- Line numbers
+
+  -- Green family (behavior)
+  green = "#00D67E",           -- Functions, methods
+  green_dark = "#008855",      -- Dark green
+  green_bright = "#00FF99",    -- Numbers, booleans, nil
+  green_mid = "#00AA66",       -- Mid green
+
+  -- Blue (structure)
+  blue = "#7AA2F7",            -- Keywords
+  blue_bright = "#99BBFF",     -- Bright blue
+
+  -- Cyan (types)
+  cyan = "#55CCCC",            -- Types, interfaces
+  cyan_bright = "#88DDDD",     -- Bright cyan
+
+  -- Orange (data)
+  orange = "#FF9E50",          -- Strings, special annotations
+  orange_bright = "#FFBB77",   -- Bright orange
+
+  -- Red (errors)
+  red = "#FF6B6B",             -- Errors
+  red_bright = "#FF8888",      -- Bright red
+
+  -- Neutrals
+  comment = "#606060",         -- Comments
+  grey = "#808080",            -- Secondary info
+  white = "#FFFFFF",           -- Emphasis
+
+  -- Semantic aliases
+  none = "NONE",
+}
+
+-- Git colors
+M.colors.git_add = M.colors.green
+M.colors.git_change = M.colors.orange
+M.colors.git_delete = M.colors.red
+
+-- Diagnostic colors
+M.colors.error = M.colors.red
+M.colors.warning = M.colors.orange
+M.colors.info = M.colors.blue
+M.colors.hint = M.colors.cyan
+
+-- Terminal colors (ANSI 0-15)
+M.colors.terminal = {
+  M.colors.bg,            -- 0: black
+  M.colors.red,           -- 1: red
+  M.colors.green,         -- 2: green
+  M.colors.orange,        -- 3: yellow/orange
+  M.colors.blue,          -- 4: blue
+  M.colors.green_dark,    -- 5: magenta -> dark green
+  M.colors.cyan,          -- 6: cyan
+  M.colors.fg_dark,       -- 7: white (dim)
+  M.colors.comment,       -- 8: bright black
+  M.colors.red_bright,    -- 9: bright red
+  M.colors.green_bright,  -- 10: bright green
+  M.colors.orange_bright, -- 11: bright yellow/orange
+  M.colors.blue_bright,   -- 12: bright blue
+  M.colors.green_mid,     -- 13: bright magenta -> mid green
+  M.colors.cyan_bright,   -- 14: bright cyan
+  M.colors.white,         -- 15: bright white
+}
+
+return M

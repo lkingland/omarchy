@@ -3,6 +3,10 @@ return {
   "fatih/vim-go",
   ft = "go",
   init = function()
+    -- Disable vim-go's LSP, let LazyVim's gopls handle it
+    vim.g.go_gopls_enabled = 0
+    vim.g.go_def_mapping_enabled = 0  -- Let LSP handle go-to-definition
+
     vim.g.go_test_show_name = 1
     vim.g.go_test_timeout = "20s"
     vim.g.go_highlight_types = 1
