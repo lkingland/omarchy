@@ -9,6 +9,7 @@ vim.opt.numberwidth = 2
 vim.opt.colorcolumn = "80"
 vim.opt.scrolloff = 8
 vim.opt.fillchars = { eob = " " } -- No ~ on empty lines
+vim.opt.conceallevel = 0 -- Don't hide characters
 
 -- Indentation (4 spaces)
 vim.opt.tabstop = 4

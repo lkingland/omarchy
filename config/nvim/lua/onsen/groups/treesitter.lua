@@ -6,7 +6,7 @@ local M = {}
 function M.get(c)
   return {
     -- Misc
-    ["@comment"] = { link = "Comment" },
+    ["@comment"] = { fg = c.comment },
     ["@comment.documentation"] = { fg = c.comment },
     ["@error"] = { fg = c.red },
     ["@none"] = {},
@@ -26,14 +26,15 @@ function M.get(c)
     ["@string.special"] = { fg = c.white },
     ["@string.special.symbol"] = { fg = c.cyan },
     ["@string.special.url"] = { fg = c.blue, underline = true },
+    ["@string.special.path"] = { fg = c.white },
 
     ["@character"] = { fg = c.white },
     ["@character.special"] = { fg = c.white },
 
-    ["@number"] = { fg = c.green_bright },
-    ["@number.float"] = { fg = c.green_bright },
+    ["@number"] = { fg = c.green },
+    ["@number.float"] = { fg = c.green },
 
-    ["@boolean"] = { fg = c.green_bright },
+    ["@boolean"] = { fg = c.green },
 
     -- Functions
     ["@function"] = { fg = c.green },
@@ -62,31 +63,31 @@ function M.get(c)
     ["@keyword.type"] = { fg = c.blue },
 
     -- Identifiers
-    ["@variable"] = { fg = c.fg },
-    ["@variable.builtin"] = { fg = c.cyan },
-    ["@variable.member"] = { fg = c.fg },
-    ["@variable.parameter"] = { fg = c.fg },
-    ["@variable.parameter.builtin"] = { fg = c.cyan },
+    ["@variable"] = { fg = c.green },
+    ["@variable.builtin"] = { fg = c.green },
+    ["@variable.member"] = { fg = c.green },
+    ["@variable.parameter"] = { fg = c.green },
+    ["@variable.parameter.builtin"] = { fg = c.green },
 
-    ["@constant"] = { fg = c.green_bright },
-    ["@constant.builtin"] = { fg = c.green_bright },
-    ["@constant.macro"] = { fg = c.green_bright },
+    ["@constant"] = { fg = c.green },
+    ["@constant.builtin"] = { fg = c.green },
+    ["@constant.macro"] = { fg = c.green },
 
-    ["@module"] = { fg = c.fg },
-    ["@module.builtin"] = { fg = c.cyan },
+    ["@module"] = { fg = c.green },
+    ["@module.builtin"] = { fg = c.green },
 
     ["@label"] = { fg = c.blue },
 
-    -- Types
-    ["@type"] = { fg = c.cyan },
-    ["@type.builtin"] = { fg = c.cyan },
-    ["@type.definition"] = { fg = c.cyan },
+    -- Types (italic, de-emphasized)
+    ["@type"] = { fg = c.green_muted, italic = true },
+    ["@type.builtin"] = { fg = c.green_muted, italic = true },
+    ["@type.definition"] = { fg = c.green_muted, italic = true },
     ["@type.qualifier"] = { fg = c.blue },
 
     ["@attribute"] = { fg = c.orange },
     ["@attribute.builtin"] = { fg = c.orange },
 
-    ["@property"] = { fg = c.fg },
+    ["@property"] = { fg = c.green },
 
     -- Operators
     ["@operator"] = { fg = c.fg_dark },
@@ -97,8 +98,8 @@ function M.get(c)
     ["@tag.attribute"] = { fg = c.fg },
     ["@tag.delimiter"] = { fg = c.fg_dark },
 
-    -- Constructor
-    ["@constructor"] = { fg = c.cyan },
+    -- Constructor (type-related)
+    ["@constructor"] = { fg = c.green_muted, italic = true },
 
     -- Special
     ["@annotation"] = { fg = c.orange },

@@ -6,18 +6,18 @@ local M = {}
 function M.get(c)
   return {
     -- Comments
-    Comment = { fg = c.comment, italic = true },
+    Comment = { fg = c.comment },
 
     -- Constants
-    Constant = { fg = c.green_bright },
+    Constant = { fg = c.green },
     String = { fg = c.white },
     Character = { fg = c.white },
-    Number = { fg = c.green_bright },
-    Boolean = { fg = c.green_bright },
-    Float = { fg = c.green_bright },
+    Number = { fg = c.green },
+    Boolean = { fg = c.green },
+    Float = { fg = c.green },
 
     -- Identifiers
-    Identifier = { fg = c.fg },
+    Identifier = { fg = c.green },
     Function = { fg = c.green },
 
     -- Statements
@@ -36,11 +36,11 @@ function M.get(c)
     Macro = { fg = c.blue },
     PreCondit = { fg = c.blue },
 
-    -- Types
-    Type = { fg = c.cyan },
+    -- Types (italic, de-emphasized)
+    Type = { fg = c.green_muted, italic = true },
     StorageClass = { fg = c.blue },
-    Structure = { fg = c.cyan },
-    Typedef = { fg = c.cyan },
+    Structure = { fg = c.green_muted, italic = true },
+    Typedef = { fg = c.green_muted, italic = true },
 
     -- Special
     Special = { fg = c.orange },

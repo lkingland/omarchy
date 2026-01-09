@@ -10,7 +10,7 @@ M.colors = {
   bg_float = "#0A1A12",        -- Subtle green tint for floats
   bg_highlight = "#0A1A12",    -- Cursor line
   bg_popup = "#0A1A12",        -- Completion menu
-  bg_search = "#00D67E",       -- Search highlight bg
+  bg_search = "#8FD9A8",       -- Search highlight bg
   bg_visual = "#1A3A2A",       -- Visual selection
 
   -- Foregrounds
@@ -18,22 +18,24 @@ M.colors = {
   fg_dark = "#B0B0B0",         -- Dimmed text (operators, punctuation)
   fg_gutter = "#606060",       -- Line numbers
 
-  -- Green family (behavior)
-  green = "#00D67E",           -- Functions, methods
+  -- Green family
+  green = "#8FD9A8",           -- Variables, functions, constants
+  green_muted = "#8FD9A8",     -- Types (italic)
   green_dark = "#008855",      -- Dark green
-  green_bright = "#00FF99",    -- Numbers, booleans, nil
+  green_bright = "#00FF99",    -- UI only: notifications, success, callouts
   green_mid = "#00AA66",       -- Mid green
 
   -- Blue (structure)
-  blue = "#7AA2F7",            -- Keywords
+  blue = "#A8C4F7",            -- Keywords
   blue_bright = "#99BBFF",     -- Bright blue
+  blue_dark = "#2D4055",       -- Indent guides, subtle structure
 
-  -- Cyan (types)
-  cyan = "#55CCCC",            -- Types, interfaces
+  -- Cyan (reserved for special cases)
+  cyan = "#55CCCC",            -- Special identifiers
   cyan_bright = "#88DDDD",     -- Bright cyan
 
-  -- Orange (data)
-  orange = "#FF9E50",          -- Strings, special annotations
+  -- Orange (warnings, annotations)
+  orange = "#FF9E50",          -- Warnings, special annotations, TODO
   orange_bright = "#FFBB77",   -- Bright orange
 
   -- Red (errors)

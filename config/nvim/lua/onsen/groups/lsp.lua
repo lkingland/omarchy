@@ -66,12 +66,13 @@ function M.get(c)
     ["@lsp.type.formatSpecifier"] = { link = "@markup.list" },
     ["@lsp.type.function"] = { link = "@function" },
     ["@lsp.type.generic"] = { link = "@variable" },
-    ["@lsp.type.interface"] = { fg = c.cyan },
+    ["@lsp.type.interface"] = { link = "@type" },
     ["@lsp.type.keyword"] = { link = "@keyword" },
     ["@lsp.type.lifetime"] = { link = "@keyword.storage" },
     ["@lsp.type.macro"] = { link = "@function.macro" },
     ["@lsp.type.method"] = { link = "@function.method" },
     ["@lsp.type.namespace"] = { link = "@module" },
+    ["@lsp.type.namespace.go"] = {},  -- Let treesitter @string handle Go imports
     ["@lsp.type.number"] = { link = "@number" },
     ["@lsp.type.operator"] = { link = "@operator" },
     ["@lsp.type.parameter"] = { link = "@variable.parameter" },
@@ -105,6 +106,8 @@ function M.get(c)
     ["@lsp.typemod.variable.injected"] = { link = "@variable" },
     ["@lsp.typemod.variable.static"] = { link = "@constant" },
     ["@lsp.typemod.variable.globalScope"] = {},
+    ["@lsp.typemod.variable.readonly"] = { link = "@variable" },  -- Constants use regular green
+    ["@lsp.typemod.variable.readonly.go"] = { link = "@variable" },
   }
 end
 
