@@ -1,0 +1,37 @@
+# Onsen - OLED pastel green/blue theme
+# Philosophy: Monochromatic pastel green base with blue for structure,
+# orange for warnings, and red for errors only.
+#
+# Palette:
+#   Green (#8FD9A8) - behavior, data, success, variables
+#   Blue (#A8C4F7) - structure, keywords, directories
+#   Orange (#FF9E50) - warnings, attention
+#   Red (#FF6B6B) - errors only
+
+accent = "#8FD9A8"
+active_border_color = "#8FD9A8"
+active_tab_background = "#0D1F15"
+
+cursor = "#8FD9A8"
+foreground = "#E0E0E0"
+background = "#000000"
+selection_foreground = "#000000"
+selection_background = "#8FD9A8"
+
+# ANSI 16-color palette
+color0 = "#000000"       # black
+color1 = "#FF6B6B"       # red (errors)
+color2 = "#8FD9A8"       # green (primary - pastel)
+color3 = "#FF9E50"       # yellow→orange (warnings/callouts)
+color4 = "#A8C4F7"       # blue (structure - pastel)
+color5 = "#6BB88A"       # magenta→muted green
+color6 = "#88CCCC"       # cyan (muted)
+color7 = "#B0B0B0"       # white (dim text)
+color8 = "#606060"       # bright black (comments)
+color9 = "#FF8888"       # bright red
+color10 = "#A8E4BC"      # bright green (slightly brighter pastel)
+color11 = "#FFBB77"      # bright yellow→orange
+color12 = "#B8D4FF"      # bright blue (slightly brighter pastel)
+color13 = "#74C995"      # bright magenta→mid green
+color14 = "#99DDDD"      # bright cyan
+color15 = "#FFFFFF"      # bright white (emphasis)
