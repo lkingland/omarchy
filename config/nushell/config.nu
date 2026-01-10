@@ -43,6 +43,12 @@ $env.config = {
     ]
 }
 
+# Vi mode indicators (starship character disabled, nushell handles it)
+let green_bold = { fg: "#8FD9A8", attr: b }
+let blue_bold = { fg: "#A8C4F7", attr: b }
+$env.PROMPT_INDICATOR_VI_INSERT = $"(ansi $green_bold)❯(ansi reset) "
+$env.PROMPT_INDICATOR_VI_NORMAL = $"(ansi $blue_bold)❮(ansi reset) "
+
 # -------------------------
 # Environment
 # -------------------------
