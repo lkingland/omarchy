@@ -14,7 +14,7 @@ Omarchy, so it functions conceptually as a "dotfiles".
 ## Configuration Updates
 
 The way that configuration changes are applied is to edit them here in
-this repository, and then run ./config/config.sh which takes the configuration
+this repository, and then run ./install/config/config.sh which takes the configuration
 here and writes it to the active system (~/.config).
 
 For live testing of config changes, it's acceptable to edit files in ~/.config

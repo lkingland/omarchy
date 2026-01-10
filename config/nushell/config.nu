@@ -97,6 +97,7 @@ $env.PROMPT_INDICATOR_VI_NORMAL = $"(ansi $blue_bold)❮(ansi reset) "
 # Add local bin directories to PATH
 $env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/share/omarchy/bin")
 $env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/bin")
+$env.PATH = ($env.PATH | prepend $"($env.HOME)/sh")
 
 $env.EDITOR = "nvim"
 
@@ -211,6 +212,7 @@ alias la = eza -a --icons
 alias lt = eza --tree --level=2 --long --icons --git
 alias lta = eza --tree --level=2 --long --icons --git -a
 alias ltree = eza --tree --level=2 --icons --git
+alias ltt = eza --tree --level=4 --icons --git --only-dirs
 
 # Nushell native ls (for structured data / piping with | where, etc.)
 # Use `ls` directly for native output
