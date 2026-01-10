@@ -157,8 +157,8 @@ $env.SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh"
 gpgconf --launch gpg-agent
 $env.VISUAL = "nvim"
 $env.SUDO_EDITOR = "nvim"
-$env.BAT_THEME = "ansi"
 $env.GIT_EXTERNAL_DIFF = "difft"
+$env.BAT_THEME = "onsen"
 $env.EZA_CONFIG_DIR = $"($env.HOME)/.config/omarchy/current/theme"
 $env.TIME_STYLE = "+%Y/%m/%d %H:%M"
 

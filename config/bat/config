@@ -1,7 +1,6 @@
 # Bat configuration - Onsen theme
-# Uses terminal colors via "ansi" theme
 
---theme="ansi"
+--theme="onsen"
 
 # Style: with grid, line numbers, git changes
 --style="numbers,changes,grid,header-filename,snip"
