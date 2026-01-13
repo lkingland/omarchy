@@ -20,3 +20,6 @@ map("n", "<A-j>", "<cmd>resize +2<cr>", { desc = "Expand Window Height" })
 -- Visual line navigation (respect wrapped lines)
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Neo-tree: focus instead of toggle (opens if closed, focuses if open, never closes)
+map("n", "<leader>e", "<cmd>Neotree focus<cr>", { desc = "Focus Explorer" })

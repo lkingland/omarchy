@@ -1,5 +1,8 @@
 #:schema https://docs.jj-vcs.dev/latest/config-schema.json
 
+[ui]
+diff-formatter = "difft"
+
 [user]
 name = "Luke Kingland"
 email = "luke@lukekingland.com"

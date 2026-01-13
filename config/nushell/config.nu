@@ -159,6 +159,7 @@ gpgconf --launch gpg-agent
 $env.VISUAL = "nvim"
 $env.SUDO_EDITOR = "nvim"
 $env.GIT_EXTERNAL_DIFF = "difft"
+$env.DFT_UNDERLINE = "false"
 $env.BAT_THEME = "onsen"
 $env.EZA_CONFIG_DIR = $"($env.HOME)/.config/omarchy/current/theme"
 $env.TIME_STYLE = "+%Y/%m/%d %H:%M"
