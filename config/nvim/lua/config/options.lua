@@ -16,6 +16,9 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 
+-- Clipboard (OSC52 for SSH/tmux)
+vim.opt.clipboard = "unnamedplus"
+
 -- Undo history
 vim.opt.undolevels = 10000
 vim.opt.undoreload = 100000
