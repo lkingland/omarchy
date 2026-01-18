@@ -97,6 +97,7 @@ $env.PROMPT_INDICATOR_VI_NORMAL = $"(ansi $blue_bold)❮(ansi reset) "
 # Add local bin directories to PATH
 $env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/share/omarchy/bin")
 $env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/bin")
+$env.PATH = ($env.PATH | prepend $"($env.HOME)/go/bin")
 $env.PATH = ($env.PATH | prepend $"($env.HOME)/sh")
 
 $env.EDITOR = "nvim"
