@@ -23,6 +23,10 @@ directly, but any changes must be made here as well for source control.
 This repository is managed with jj (jujutsu).  Please use jj commands directly
 rather than git commands unless necessary.
 
+The repo is configured with no immutable commits (`immutable_heads() = none()`).
+This allows rebasing our fork onto upstream even after pushing to origin. See
+`.jj/repo/config.toml`.
+
 Every change to these dotfiles should be made in it's own jj change creating a
 clean history.  An entry should be added to the README.md under "Customizations"
 explaining the change made.
