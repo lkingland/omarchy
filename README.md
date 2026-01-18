@@ -11,9 +11,9 @@ They are applied to the system with:
 
 ## Updating
 
-Use the omarchy-sync script which
-- Pulls upstream changes
-- Rebases on upstream
+Use the omarchy-sync script (in ~/sh) which:
+- Fetches upstream changes
+- Creates a merge commit to incorporate upstream
 - Allows opportunity to resolve conflicts
 - Runs the upstream system updater omarchy-update
 

@@ -6,7 +6,7 @@ add_newline = true
 command_timeout = 500
 
 # Two-line prompt: info on line 1, input on line 2
-# Right prompt: kubernetes context + hostname (when SSH'd)
+# Right prompt: kubernetes context (hostname moved to tmux status bar)
 format = """
 $directory\
 $custom\
@@ -15,7 +15,6 @@ $git_status\
 $cmd_duration\
 $fill\
 $kubernetes\
-$hostname\
 $line_break\
 $character"""
 

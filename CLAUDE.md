@@ -23,24 +23,19 @@ directly, but any changes must be made here as well for source control.
 This repository is managed with jj (jujutsu).  Please use jj commands directly
 rather than git commands unless necessary.
 
-The repo is configured with no immutable commits (`immutable_heads() = none()`).
-This allows rebasing our fork onto upstream even after pushing to origin. See
-`.jj/repo/config.toml`.
-
 Every change to these dotfiles should be made in it's own jj change creating a
 clean history.  An entry should be added to the README.md under "Customizations"
 explaining the change made.
 
 ## System Updates
 
-Updating this sytem is also slightly different.  We must first update the
-fork from upstream before running the "omarchy-sync" script.  Please read this
-script to understand what it does before execution. in short it:
-- fetches the upstream change
-- rebases the current
+Updating this system uses a merge-based workflow to keep local customizations
+separate from upstream changes.  Run the "omarchy-sync" script (in ~/sh) which:
+- fetches upstream changes
+- creates a merge commit incorporating upstream into master
 - provides an opportunity to resolve conflicts
-- updates the master bookmark
-- syncs the underlying git repository  with an explicit checkout
-- runs the builtin omarchy-update which utilizes pacman for system updates.
+- updates the master bookmark to the merge commit
+- syncs the underlying git repository with an explicit checkout
+- runs the builtin omarchy-update which utilizes pacman for system updates
 
 

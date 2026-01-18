@@ -17,6 +17,14 @@ fi
 # Use default bashrc from Omarchy
 cp ~/.local/share/omarchy/default/bashrc ~/.bashrc
 
+# Symlink GPG config files
+mkdir -p ~/.gnupg
+chmod 700 ~/.gnupg
+for conf in ~/.local/share/omarchy/default/gpg/*.conf; do
+  name=$(basename "$conf")
+  ln -sf "$conf" ~/.gnupg/"$name"
+done
+
 # Use Brave as default browser
 xdg-settings set default-web-browser brave-browser.desktop
 xdg-mime default brave-browser.desktop x-scheme-handler/http
