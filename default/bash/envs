@@ -20,6 +20,10 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # Omarchy paths (required by omarchy-version and other scripts)
 export OMARCHY_PATH="$HOME/.local/share/omarchy"
 
+# Android SDK
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator"
+
 # Pager settings (better git diff, man pages, etc.)
 export LESS="-R --no-init --quit-if-one-screen"
 

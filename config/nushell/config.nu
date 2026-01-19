@@ -100,6 +100,12 @@ $env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/bin")
 $env.PATH = ($env.PATH | prepend $"($env.HOME)/go/bin")
 $env.PATH = ($env.PATH | prepend $"($env.HOME)/sh")
 
+# Android SDK
+$env.ANDROID_HOME = $"($env.HOME)/Android/Sdk"
+$env.PATH = ($env.PATH | append $"($env.ANDROID_HOME)/platform-tools")
+$env.PATH = ($env.PATH | append $"($env.ANDROID_HOME)/cmdline-tools/latest/bin")
+$env.PATH = ($env.PATH | append $"($env.ANDROID_HOME)/emulator")
+
 $env.EDITOR = "nvim"
 
 # LS_COLORS for nushell native ls and eza (Onsen theme)
