@@ -5,30 +5,30 @@ return {
     local colors = {
       bg = "#000000",
       fg = "#E0E0E0",
-      blue = "#A8C4F7",
-      green = "#8FD9A8",
-      red = "#FF6B6B",
-      orange = "#FF9E50",
+      green_dark = "#2D5540",    -- Dark green (matches tmux active pill)
+      green_darker = "#1E3A2D",  -- Darker green (matches tmux inactive pill)
+      red_dark = "#552D2D",      -- Dark red
+      orange_dark = "#554020",   -- Dark orange
       comment = "#606060",
     }
 
     local onsen_theme = {
       normal = {
-        a = { fg = colors.bg, bg = colors.blue, gui = "bold" },
-        b = { fg = colors.fg, bg = colors.comment },
+        a = { fg = colors.fg, bg = colors.green_dark, gui = "bold" },
+        b = { fg = colors.fg, bg = colors.green_darker },
         c = { fg = colors.fg, bg = colors.bg },
       },
       insert = {
-        a = { fg = colors.bg, bg = colors.green, gui = "bold" },
+        a = { fg = colors.fg, bg = colors.green_dark, gui = "bold" },
       },
       visual = {
-        a = { fg = colors.bg, bg = colors.orange, gui = "bold" },
+        a = { fg = colors.fg, bg = colors.orange_dark, gui = "bold" },
       },
       replace = {
-        a = { fg = colors.bg, bg = colors.red, gui = "bold" },
+        a = { fg = colors.fg, bg = colors.red_dark, gui = "bold" },
       },
       command = {
-        a = { fg = colors.bg, bg = colors.blue, gui = "bold" },
+        a = { fg = colors.fg, bg = colors.green_dark, gui = "bold" },
       },
       inactive = {
         a = { fg = colors.comment, bg = colors.bg },
