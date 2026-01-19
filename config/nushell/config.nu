@@ -100,11 +100,16 @@ $env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/bin")
 $env.PATH = ($env.PATH | prepend $"($env.HOME)/go/bin")
 $env.PATH = ($env.PATH | prepend $"($env.HOME)/sh")
 
+# Java (use `sudo archlinux-java set java-21-openjdk` for Android)
+$env.JAVA_HOME = "/usr/lib/jvm/default"
+
 # Android SDK
 $env.ANDROID_HOME = $"($env.HOME)/Android/Sdk"
+$env.ANDROID_SDK_ROOT = $env.ANDROID_HOME
 $env.PATH = ($env.PATH | append $"($env.ANDROID_HOME)/platform-tools")
 $env.PATH = ($env.PATH | append $"($env.ANDROID_HOME)/cmdline-tools/latest/bin")
 $env.PATH = ($env.PATH | append $"($env.ANDROID_HOME)/emulator")
+$env.PATH = ($env.PATH | append $"($env.ANDROID_HOME)/build-tools/34.0.0")
 
 $env.EDITOR = "nvim"
 

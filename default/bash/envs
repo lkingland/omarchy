@@ -22,7 +22,7 @@ export OMARCHY_PATH="$HOME/.local/share/omarchy"
 
 # Android SDK
 export ANDROID_HOME="$HOME/Android/Sdk"
-export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator"
+export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/build-tools/34.0.0"
 
 # Pager settings (better git diff, man pages, etc.)
 export LESS="-R --no-init --quit-if-one-screen"
