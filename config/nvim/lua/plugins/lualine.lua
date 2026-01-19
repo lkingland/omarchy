@@ -1,4 +1,4 @@
--- Customize lualine colors for Onsen theme
+-- Customize lualine colors for Onsen theme with rounded pill edges
 return {
   "nvim-lualine/lualine.nvim",
   opts = function(_, opts)
@@ -39,5 +39,26 @@ return {
 
     opts.options = opts.options or {}
     opts.options.theme = onsen_theme
+
+    -- Left end cap (rounded pill edge)
+    local left_cap = {
+      function() return "" end,
+      color = { fg = colors.green_dark, bg = colors.bg },
+      padding = 0,
+    }
+
+    -- Right end cap (rounded pill edge)
+    local right_cap = {
+      function() return "" end,
+      color = { fg = colors.green_dark, bg = colors.bg },
+      padding = 0,
+    }
+
+    -- Insert caps at outer edges
+    opts.sections = opts.sections or {}
+    opts.sections.lualine_a = opts.sections.lualine_a or {}
+    opts.sections.lualine_z = opts.sections.lualine_z or {}
+    table.insert(opts.sections.lualine_a, 1, left_cap)
+    table.insert(opts.sections.lualine_z, right_cap)
   end,
 }
