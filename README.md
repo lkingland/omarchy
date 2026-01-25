@@ -59,6 +59,9 @@ Rich shell completions for 1000+ commands, bridged from zsh/fish/bash.
 ### AI Agents
 CLAUDE.md with project context and jj workflow instructions for AI coding assistants.
 
+### Claude Code Neovim Integration
+[claudecode.nvim](https://github.com/coder/claudecode.nvim) plugin for Claude CLI integration. All keybindings under `<leader>a`: toggle (`ac`), focus (`af`), resume (`ar`), continue (`aC`), model select (`am`), add buffer (`ab`), send selection (`as`), accept/deny diffs (`aa`/`ad`).
+
 ### Default Browser
 Brave set as default browser for HTTP/HTTPS links.
 

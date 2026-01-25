@@ -17,6 +17,9 @@ The way that configuration changes are applied is to edit them here in
 this repository, and then run ./install/config/config.sh which takes the configuration
 here and writes it to the active system (~/.config).
 
+**Exception:** Neovim config (`config/nvim/`) is symlinked directly to `~/.config/nvim`,
+so changes take effect immediately without running config.sh.
+
 For live testing of config changes, it's acceptable to edit files in ~/.config
 directly, but any changes must be made here as well for source control.
 
