@@ -27,9 +27,19 @@ return {
     { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
     { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
     { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
-    { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
+    { "<leader>as", function()
+        vim.cmd("ClaudeCodeSend")
+        vim.schedule(function()
+          vim.cmd("ClaudeCodeFocus")
+          vim.cmd("startinsert")
+        end)
+      end, mode = "v", desc = "Send to Claude" },
     { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
     { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
+    { "<leader>aR", function()
+        vim.cmd("checktime")          -- Reload any changed buffers
+        vim.cmd("LspRestart")         -- Restart LSP for fresh diagnostics
+      end, desc = "Refresh buffers & LSP" },
   },
   config = function(_, opts)
     require("claudecode").setup(opts)

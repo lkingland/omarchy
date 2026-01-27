@@ -65,6 +65,7 @@ function M.get(c)
     ["@lsp.type.escapeSequence"] = { link = "@string.escape" },
     ["@lsp.type.formatSpecifier"] = { link = "@markup.list" },
     ["@lsp.type.function"] = { link = "@function" },
+    ["@lsp.type.function.go"] = {},  -- Let treesitter handle Go (distinguishes pkg.Func from func)
     ["@lsp.type.generic"] = { link = "@variable" },
     ["@lsp.type.interface"] = { link = "@type" },
     ["@lsp.type.keyword"] = { link = "@keyword" },
@@ -77,6 +78,8 @@ function M.get(c)
     ["@lsp.type.operator"] = { link = "@operator" },
     ["@lsp.type.parameter"] = { link = "@variable.parameter" },
     ["@lsp.type.property"] = { link = "@property" },
+    ["@lsp.type.field"] = { link = "@property" },
+    ["@lsp.type.member"] = { link = "@variable.member" },
     ["@lsp.type.selfKeyword"] = { link = "@variable.builtin" },
     ["@lsp.type.selfTypeKeyword"] = { link = "@variable.builtin" },
     ["@lsp.type.string"] = { link = "@string" },

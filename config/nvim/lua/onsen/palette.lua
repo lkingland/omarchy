@@ -26,12 +26,12 @@ M.colors = {
   green_mid = "#00AA66",       -- Mid green
 
   -- Blue (structure)
-  blue = "#A8C4F7",            -- Keywords
+  blue = "#88AAFF",            -- Keywords (saturated periwinkle)
   blue_bright = "#99BBFF",     -- Bright blue
   blue_dark = "#2D4055",       -- Indent guides, subtle structure
 
   -- Cyan (reserved for special cases)
-  cyan = "#55CCCC",            -- Special identifiers
+  cyan = "#77DDDD",            -- Fields, methods, member access
   cyan_bright = "#88DDDD",     -- Bright cyan
 
   -- Orange (warnings, annotations)
@@ -43,7 +43,7 @@ M.colors = {
   red_bright = "#FF8888",      -- Bright red
 
   -- Neutrals
-  comment = "#606060",         -- Comments
+  comment = "#707070",         -- Comments
   grey = "#808080",            -- Secondary info
   white = "#FFFFFF",           -- Emphasis
 

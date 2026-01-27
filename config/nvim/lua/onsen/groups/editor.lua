@@ -29,7 +29,7 @@ function M.get(c)
     -- Separators
     VertSplit = { fg = c.comment },
     WinSeparator = { fg = c.comment },
-    ColorColumn = { bg = c.bg_highlight },
+    ColorColumn = { bg = "#1A2A22" },
 
     -- Popup menu
     Pmenu = { fg = c.fg, bg = c.bg_popup },

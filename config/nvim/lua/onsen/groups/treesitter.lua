@@ -41,8 +41,8 @@ function M.get(c)
     ["@function.builtin"] = { fg = c.green },
     ["@function.call"] = { fg = c.green },
     ["@function.macro"] = { fg = c.green },
-    ["@function.method"] = { fg = c.green },
-    ["@function.method.call"] = { fg = c.green },
+    ["@function.method"] = { fg = c.cyan },
+    ["@function.method.call"] = { fg = c.cyan },
 
     -- Keywords
     ["@keyword"] = { fg = c.blue },
@@ -65,7 +65,7 @@ function M.get(c)
     -- Identifiers
     ["@variable"] = { fg = c.green },
     ["@variable.builtin"] = { fg = c.green },
-    ["@variable.member"] = { fg = c.green },
+    ["@variable.member"] = { fg = c.cyan },
     ["@variable.parameter"] = { fg = c.green },
     ["@variable.parameter.builtin"] = { fg = c.green },
 
@@ -87,7 +87,7 @@ function M.get(c)
     ["@attribute"] = { fg = c.orange },
     ["@attribute.builtin"] = { fg = c.orange },
 
-    ["@property"] = { fg = c.green },
+    ["@property"] = { fg = c.cyan },
 
     -- Operators
     ["@operator"] = { fg = c.fg_dark },
