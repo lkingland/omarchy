@@ -1,43 +1,23 @@
 # Neovim IDE Integration
 
-You're running inside Neovim via **claudecode.nvim**. You have two ways to access editor context:
+You're running inside Neovim via **claudecode.nvim**.
 
-## 1. Socket Queries (Neovim RPC)
+## What works automatically
 
-Query the editor directly via `$NVIM` socket. Examples:
+- **File edits**: Edit/Write tools trigger diff views for user approval
+- **Selections**: When user sends a selection, you receive it via the protocol
+- **Diagnostics**: Call `mcp__ide__getDiagnostics` for LSP errors/warnings
 
-```bash
-# Current file, line, content at cursor
-nvim --server "$NVIM" --remote-expr 'json_encode({"file": expand("#".winbufnr(1).":p"), "line": getcurpos(1)[1], "content": getbufline(winbufnr(1), getcurpos(1)[1])[0]})'
+## If you need more context
 
-# Window layout (to find code window vs terminals/sidebars)
-nvim --server "$NVIM" --remote-expr 'json_encode(map(range(1, winnr("$")), {_, nr -> {"winnr": nr, "name": bufname(winbufnr(nr)), "filetype": getbufvar(winbufnr(nr), "&filetype")}}))'
-
-# Lines around cursor (adjust window number as needed)
-nvim --server "$NVIM" --remote-expr 'json_encode(getbufline(winbufnr(1), max([1,getcurpos(1)[1]-5]), getcurpos(1)[1]+5))'
-```
-
-Window 1 may be a sidebar (neo-tree, NvimTree). Query layout first if unsure.
-
-## 2. MCP Tool
-
-`mcp__ide__getDiagnostics` - Returns LSP errors/warnings. Use when debugging.
-
-## File Edits
-
-Use standard `Edit`/`Write` tools. Claude Code automatically shows diffs in the IDE for user approval.
-
-## Proactive Context
-
-When the user asks about code without specifying what, consider querying the socket to see what they're looking at, or ask for clarification.
-
-## Visual Selection
-
-When the user references a selection that cleared on window switch, query the last visual marks:
+Query the editor via `$NVIM` socket:
 
 ```bash
-# Get last visual selection range from buffer N
-nvim --server "$NVIM" --remote-expr 'json_encode([nvim_buf_get_mark(N, "<"), nvim_buf_get_mark(N, ">")])'
+# Window layout (find code window vs sidebars/terminals)
+nvim --server "$NVIM" --remote-expr 'json_encode(map(range(1, winnr("$")), {_, nr -> {"winnr": nr, "buf": bufname(winbufnr(nr)), "ft": getbufvar(winbufnr(nr), "&filetype")}}))'
+
+# Cursor position and nearby lines (adjust winnr as needed)
+nvim --server "$NVIM" --remote-expr 'json_encode({"file": expand("%:p"), "line": line("."), "context": getline(max([1,line(".")-5]), line(".")+5)})'
 ```
 
-Use window layout query first to find the correct buffer number.
+When uncertain what the user is looking at, ask rather than guessing.
