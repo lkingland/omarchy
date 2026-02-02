@@ -207,6 +207,32 @@ def open [path: string] {
     xdg-open $path out+err> /dev/null &
 }
 
+# Directory stack (pushd/popd style navigation)
+$env.DIR_STACK = []
+
+# cd wrapper that pushes current dir onto stack before changing
+def --env cdd [dir?: string] {
+    let target = if ($dir | is-empty) { $env.HOME } else { $dir }
+    $env.DIR_STACK = ($env.DIR_STACK | prepend $env.PWD)
+    cd $target
+}
+
+# Pop directory from stack and cd to it
+def --env o [] {
+    if ($env.DIR_STACK | is-empty) {
+        print "Directory stack is empty"
+    } else {
+        let target = ($env.DIR_STACK | first)
+        $env.DIR_STACK = ($env.DIR_STACK | skip 1)
+        cd $target
+    }
+}
+
+# Show the directory stack
+def dirs [] {
+    $env.DIR_STACK | enumerate | each { |it| $"($it.index): ($it.item)" }
+}
+
 # Directory navigation shortcuts
 alias '..' = cd ..
 alias '...' = cd ../..

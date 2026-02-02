@@ -29,7 +29,13 @@ return {
     { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
     { "<leader>aR", function()
         vim.cmd("checktime")          -- Reload any changed buffers
+        vim.cmd("edit")               -- Force reload current buffer
         vim.cmd("LspRestart")         -- Restart LSP for fresh diagnostics
+        -- Refresh todo-comments if available
+        local ok, todo = pcall(require, "todo-comments")
+        if ok and todo.refresh then
+          todo.refresh()
+        end
       end, desc = "Refresh buffers & LSP" },
   },
   config = function(_, opts)
