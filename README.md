@@ -65,6 +65,12 @@ CLAUDE.md with project context and jj workflow instructions for AI coding assist
 ### Default Browser
 Brave set as default browser for HTTP/HTTPS links.
 
+### Ollama with ROCm (AMD GPU)
+Local LLM inference via [Ollama](https://ollama.com) with ROCm backend for AMD Radeon RX 7900 XT. Requires:
+- `ollama-rocm` package (not `ollama`)
+- `ollama` user in `render` and `video` groups
+- Kernel parameter `amdgpu.cwsr_enable=0` to prevent MES firmware hangs on kernel 6.18+ with ROCm 7.x
+
 ## License
 
 Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).
