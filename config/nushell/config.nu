@@ -81,6 +81,13 @@ $env.config = {
             mode: [emacs, vi_normal, vi_insert]
             event: { send: clearscreen }
         }
+        {
+            name: ide_completion
+            modifier: control
+            keycode: char_n
+            mode: [emacs, vi_normal, vi_insert]
+            event: { send: menu name: ide_completion_menu }
+        }
     ]
 }
 
