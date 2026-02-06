@@ -186,6 +186,7 @@ $env.TIME_STYLE = "+%Y/%m/%d %H:%M"
 # -------------------------
 # Aliases - General
 # -------------------------
+alias fg = job unfreeze
 alias c = clear
 alias e = exit
 alias v = nvim
