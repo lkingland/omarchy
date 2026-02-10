@@ -30,35 +30,35 @@ Manage [Omarchy](https://omarchy.org/) Linux systems - a beautiful, modern, opin
 
 **If you're about to edit a config file in ~/.config/ on this system, STOP and use this skill first.**
 
-## Critical Safety Rules
+## Critical: This Is a Fork
 
-**NEVER modify anything in `~/.local/share/omarchy/`** - but READING is safe and encouraged.
+**This is a personal fork of omarchy used as dotfiles.** The repo at
+`~/.local/share/omarchy/` is where all edits should be made. This overrides
+the stock omarchy guidance to never edit that directory.
 
-This directory contains Omarchy's source files managed by git. Any changes will be:
-- Lost on next `omarchy-update`
-- Cause conflicts with upstream
-- Break the system's update mechanism
+**Workflow for config changes:**
+1. Edit files in the repo (`~/.local/share/omarchy/config/...`)
+2. Run `./install/config/config.sh` to apply changes to `~/.config/`
+3. Each logical change gets its own jj change with a README.md entry
+
+**Exception:** Neovim config (`config/nvim/`) is symlinked directly to
+`~/.config/nvim`, so changes take effect immediately without running config.sh.
+
+**Live testing:** It's acceptable to edit `~/.config/` directly for quick
+iteration, but changes must be made in the repo as well for source control.
 
 ```
-~/.local/share/omarchy/     # READ-ONLY - NEVER EDIT (reading is OK)
+~/.local/share/omarchy/     # THIS IS THE DOTFILES REPO - EDIT HERE
 ├── bin/                    # Source scripts (symlinked to PATH)
-├── config/                 # Default config templates
+├── config/                 # Config files (applied via config.sh)
 ├── themes/                 # Stock themes
 ├── default/                # System defaults
 ├── migrations/             # Update migrations
-└── install/                # Installation scripts
+└── install/                # Installation scripts (including config.sh)
 ```
 
-**Reading `~/.local/share/omarchy/` is SAFE and useful** - do it freely to:
-- Understand how omarchy commands work: `cat $(which omarchy-theme-set)`
-- See default configs before customizing: `cat ~/.local/share/omarchy/config/waybar/config.jsonc`
-- Check stock theme files to copy for customization
-- Reference default hyprland settings: `cat ~/.local/share/omarchy/default/hypr/*`
-
-**Always use these safe locations instead:**
-- `~/.config/` - User configuration (safe to edit)
-- `~/.config/omarchy/themes/<custom-name>/` - Custom themes (must be real directories)
-- `~/.config/omarchy/hooks/` - Custom automation hooks
+Upstream changes are incorporated via `omarchy-sync` (merge-based workflow),
+not `omarchy-update` directly. See CLAUDE.md for details.
 
 ## System Architecture
 
@@ -163,21 +163,20 @@ cat $(which omarchy-theme-set)
 
 ## Safe Customization Patterns
 
-### Pattern 1: Edit User Config Directly
+### Pattern 1: Edit Config in the Repo
 
-For simple changes, edit files in `~/.config/`:
+For config changes, edit files in the repo and apply:
 
 ```bash
-# 1. Read current config
-cat ~/.config/hypr/bindings.conf
+# 1. Read current config (either location works for reference)
+cat ~/.local/share/omarchy/config/hypr/bindings.conf
 
-# 2. Backup before changes
-cp ~/.config/hypr/bindings.conf ~/.config/hypr/bindings.conf.bak.$(date +%s)
+# 2. Edit the file in the repo with the Edit tool
 
-# 3. Make changes with Edit tool
+# 3. Apply to ~/.config/
+./install/config/config.sh
 
-# 4. Apply changes
-# - Hyprland: auto-reloads on save (no restart needed)
+# 4. Restart if needed (Hyprland auto-reloads, others don't):
 # - Waybar: MUST restart with omarchy-restart-waybar
 # - Walker: MUST restart with omarchy-restart-walker
 # - Terminals: MUST restart with omarchy-restart-terminal
@@ -333,7 +332,7 @@ omarchy-reinstall
 When user requests system changes:
 
 1. **Is it a stock omarchy command?** Use it directly
-2. **Is it a config edit?** Edit in `~/.config/`, never `~/.local/share/omarchy/`
+2. **Is it a config edit?** Edit in the repo (`~/.local/share/omarchy/config/`), run `config.sh` to apply
 3. **Is it a theme customization?** Create a NEW custom theme directory
 4. **Is it automation?** Use hooks in `~/.config/omarchy/hooks/`
 5. **Is it a package install?** Use `yay`
@@ -360,10 +359,10 @@ This creates a new migration file and outputs its path without opening an editor
 ## Example Requests
 
 - "Change my theme to catppuccin" -> `omarchy-theme-set catppuccin`
-- "Add a keybinding for Super+E to open file manager" -> Check existing bindings first, add `unbind` if needed, then add `bind` in `~/.config/hypr/bindings.conf`
-- "Configure my external monitor" -> Edit `~/.config/hypr/monitors.conf`
-- "Make the window gaps smaller" -> Edit `~/.config/hypr/looknfeel.conf`
-- "Set up night light to turn on at sunset" -> `omarchy-toggle-nightlight` or edit `~/.config/hypr/hyprsunset.conf`
+- "Add a keybinding for Super+E to open file manager" -> Check existing bindings first, add `unbind` if needed, then add `bind` in repo `config/hypr/bindings.conf`, run `config.sh`
+- "Configure my external monitor" -> Edit repo `config/hypr/monitors.conf`, run `config.sh`
+- "Make the window gaps smaller" -> Edit repo `config/hypr/looknfeel.conf`, run `config.sh`
+- "Set up night light to turn on at sunset" -> `omarchy-toggle-nightlight` or edit repo `config/hypr/hyprsunset.conf`, run `config.sh`
 - "Customize the catppuccin theme colors" -> Create `~/.config/omarchy/themes/catppuccin-custom/` by copying from stock, then edit
 - "Run a script every time I change themes" -> Create `~/.config/omarchy/hooks/theme-set`
 - "Reset waybar to defaults" -> `omarchy-refresh-waybar`
