@@ -42,7 +42,7 @@ Custom theme with true black (#000000) backgrounds for OLED displays.
 Two-line prompt with jj/git status, kubernetes context, and Tokyo Night colors.
 
 ### Tmux
-Terminal multiplexer with Tokyo Night theme, vim-tmux-navigator, and session persistence. Dynamic session switching via `prefix s 1-9,0` (sorted by creation order), fzf popup selector (`prefix F`), and indexed tree view (`prefix f`). Directional pane swapping with `prefix H/J/K/L` (complements `Ctrl+hjkl` navigation).
+Terminal multiplexer with Tokyo Night theme, vim-tmux-navigator, and session persistence. Dynamic session switching via `prefix s 1-9,0` (sorted by creation order), fzf popup selector (`prefix F`), indexed tree view (`prefix f`), and last-session toggle (`prefix l`). Directional pane swapping with `prefix H/J/K/L` (complements `Ctrl+hjkl` navigation).
 
 ### Vim-style Window Navigation
 Hyprland keybindings: `SUPER+HJKL` for focus, `SUPER+SHIFT+HJKL` for movement. Defaults `SUPER+J` (toggle split) and `SUPER+K` (keybindings) relocated to `SUPER+CTRL+J/K`.
