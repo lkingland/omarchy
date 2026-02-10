@@ -29,6 +29,9 @@ Default branch set to `main`, commit signing enabled, user identity configured.
 ### Shell: Nushell
 Replaces bash with [Nushell](https://www.nushell.sh/) featuring vi mode, structured data pipelines, and fuzzy completion. Native `ls` for tabular output; eza available via `lse`, `lle`, etc.
 
+### Job Control
+`fg` alias for `job unfreeze` — resume the most recently frozen (Ctrl+Z) job.
+
 ### YubiKey SSH Authentication
 GPG agent configured for SSH authentication via hardware security key.
 
@@ -39,7 +42,7 @@ Custom theme with true black (#000000) backgrounds for OLED displays.
 Two-line prompt with jj/git status, kubernetes context, and Tokyo Night colors.
 
 ### Tmux
-Terminal multiplexer with Tokyo Night theme, vim-tmux-navigator, and session persistence. Dynamic session switching via `prefix s 1-9,0` (sorted by creation order), fzf popup selector (`prefix F`), and indexed tree view (`prefix f`).
+Terminal multiplexer with Tokyo Night theme, vim-tmux-navigator, and session persistence. Dynamic session switching via `prefix s 1-9,0` (sorted by creation order), fzf popup selector (`prefix F`), and indexed tree view (`prefix f`). Directional pane swapping with `prefix H/J/K/L` (complements `Ctrl+hjkl` navigation).
 
 ### Vim-style Window Navigation
 Hyprland keybindings: `SUPER+HJKL` for focus, `SUPER+SHIFT+HJKL` for movement. Defaults `SUPER+J` (toggle split) and `SUPER+K` (keybindings) relocated to `SUPER+CTRL+J/K`.
