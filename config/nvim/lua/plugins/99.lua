@@ -10,6 +10,7 @@ return {
     local _99 = require("99")
     _99.setup({
       provider = _99.Providers.ClaudeCodeProvider,
+      model = "claude-opus-4-6",
     })
     require("which-key").add({
       { "<leader>9", group = "+99", icon = "" },
