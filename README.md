@@ -68,6 +68,9 @@ CLAUDE.md with project context and jj workflow instructions for AI coding assist
 ### 99 AI Plugin
 ThePrimeagen's [99](https://github.com/ThePrimeagen/99) for targeted AI code replacement via visual selection. Select code, prompt, get inline replacement via `claude --print`. Keybindings under `<leader>9`.
 
+### fff.nvim File Finder
+[fff.nvim](https://github.com/dmtrKovalenko/fff.nvim) replaces Snacks picker for file finding and grep. Rust-powered daemon with frecency scoring, typo-resistant fuzzy search, and git status awareness. Overrides `<leader>ff`, `<leader><space>`, `<leader>fF`, `<leader>fg`, and `<leader>/`. Snacks still handles all non-file pickers (help, keymaps, etc.).
+
 ### Default Browser
 Brave set as default browser for HTTP/HTTPS links.
 
