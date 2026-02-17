@@ -65,6 +65,9 @@ CLAUDE.md with project context and jj workflow instructions for AI coding assist
 ### Claude Code Neovim Integration
 [claudecode.nvim](https://github.com/coder/claudecode.nvim) plugin for Claude CLI integration. All keybindings under `<leader>a`: toggle (`ac`), focus (`af`), resume (`ar`), continue (`aC`), model select (`am`), add buffer (`ab`), send selection (`as`), accept/deny diffs (`aa`/`ad`).
 
+### 99 AI Plugin
+ThePrimeagen's [99](https://github.com/ThePrimeagen/99) for targeted AI code replacement via visual selection. Select code, prompt, get inline replacement via `claude --print`. Keybindings under `<leader>9`.
+
 ### Default Browser
 Brave set as default browser for HTTP/HTTPS links.
 
