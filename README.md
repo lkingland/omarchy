@@ -63,10 +63,10 @@ Rich shell completions for 1000+ commands, bridged from zsh/fish/bash.
 CLAUDE.md with project context and jj workflow instructions for AI coding assistants.
 
 ### Claude Code Neovim Integration
-[claudecode.nvim](https://github.com/coder/claudecode.nvim) plugin for Claude CLI integration. All keybindings under `<leader>a`: toggle (`ac`), focus (`af`), resume (`ar`), continue (`aC`), model select (`am`), add buffer (`ab`), send selection (`as`), accept/deny diffs (`aa`/`ad`).
+[claudecode.nvim](https://github.com/coder/claudecode.nvim) plugin for Claude CLI integration. All keybindings under `<leader>a`: toggle (`ac`), focus (`af`), resume (`ar`), continue (`aC`), model select (`am`), add buffer (`ab`), send selection (`as`), accept/deny diffs (`aa`/`ad`). Model picker updated to current Claude 4.6 models.
 
 ### 99 AI Plugin
-ThePrimeagen's [99](https://github.com/ThePrimeagen/99) for targeted AI code replacement via visual selection. Select code, prompt, get inline replacement via `claude --print`. Keybindings under `<leader>9`.
+ThePrimeagen's [99](https://github.com/ThePrimeagen/99) for targeted AI code replacement via visual selection. Select code, prompt, get inline replacement via `claude --print`. Keybindings under `<leader>9`. Model set to `claude-sonnet-4-6`.
 
 ### fff.nvim File Finder
 [fff.nvim](https://github.com/dmtrKovalenko/fff.nvim) replaces Snacks picker for file finding and grep. Rust-powered daemon with frecency scoring, typo-resistant fuzzy search, and git status awareness. Overrides `<leader>ff`, `<leader><space>`, `<leader>fF`, `<leader>fg`, and `<leader>/`. Snacks still handles all non-file pickers (help, keymaps, etc.).

@@ -9,6 +9,11 @@ return {
       split_width_percentage = 0.30,
     },
     terminal_cmd = "claude --ide --append-system-prompt-file ~/dotfiles/claude-nvim-preamble.md",
+    models = {
+      { name = "Claude Opus 4.6", value = "opus" },
+      { name = "Claude Sonnet 4.6", value = "sonnet" },
+      { name = "Claude Haiku 4.5", value = "haiku" },
+    },
   },
   keys = {
     { "<leader>a", nil, desc = "AI/Claude Code" },
