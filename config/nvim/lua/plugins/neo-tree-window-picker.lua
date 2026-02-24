@@ -21,6 +21,23 @@ return {
   -- Configure neo-tree to use window picker
   {
     "nvim-neo-tree/neo-tree.nvim",
+    keys = {
+      -- Override LazyVim defaults: <leader>e = focus, <leader>E = toggle
+      {
+        "<leader>e",
+        function()
+          require("neo-tree.command").execute({ action = "focus", dir = LazyVim.root() })
+        end,
+        desc = "Focus Explorer (Root Dir)",
+      },
+      {
+        "<leader>E",
+        function()
+          require("neo-tree.command").execute({ toggle = true, dir = LazyVim.root() })
+        end,
+        desc = "Toggle Explorer (Root Dir)",
+      },
+    },
     opts = {
       open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
       window = {

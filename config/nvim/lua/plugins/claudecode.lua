@@ -8,7 +8,7 @@ return {
       split_side = "right",
       split_width_percentage = 0.30,
     },
-    terminal_cmd = "claude --ide --append-system-prompt-file ~/dotfiles/claude-nvim-preamble.md",
+    terminal_cmd = "claude --ide --model sonnet --append-system-prompt-file ~/dotfiles/claude-nvim-preamble.md",
     models = {
       { name = "Claude Opus 4.6", value = "opus" },
       { name = "Claude Sonnet 4.6", value = "sonnet" },
