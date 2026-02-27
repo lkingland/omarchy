@@ -1,4 +1,4 @@
--- Configure neo-tree to use window picker for opening files
+-- Configure neo-tree: window picker + jj source
 return {
   -- Add window picker plugin
   {
@@ -18,7 +18,14 @@ return {
       })
     end,
   },
-  -- Configure neo-tree to use window picker
+
+  -- neo-tree-jj: jj status source for neo-tree
+  {
+    "Cretezy/neo-tree-jj.nvim",
+    dependencies = { "nvim-neo-tree/neo-tree.nvim" },
+  },
+
+  -- Configure neo-tree
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = {
@@ -37,18 +44,51 @@ return {
         end,
         desc = "Toggle Explorer (Root Dir)",
       },
+      {
+        "<leader>ej",
+        "<cmd>Neotree jj<cr>",
+        desc = "Explorer JJ Status",
+      },
     },
-    opts = {
-      open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
-      window = {
+    opts = function(_, opts)
+      -- Register the jj source
+      opts.sources = opts.sources or {}
+      if not vim.tbl_contains(opts.sources, "jj") then
+        table.insert(opts.sources, "jj")
+      end
+
+      -- Replace git_status tab with jj tab in source selector (if in a jj repo)
+      local ok, jj_utils = pcall(require, "neo-tree.sources.jj.utils")
+      if ok and jj_utils.get_repository_root() then
+        if opts.source_selector and opts.source_selector.sources then
+          for i, source in ipairs(opts.source_selector.sources) do
+            if source.source == "git_status" then
+              table.remove(opts.source_selector.sources, i)
+              break
+            end
+          end
+          table.insert(opts.source_selector.sources, {
+            display_name = "  JJ",
+            source = "jj",
+          })
+        end
+      end
+
+      -- Disable git status on filesystem source (broken with jj; vcsigns handles the gutter)
+      opts.filesystem = opts.filesystem or {}
+      opts.filesystem.enable_git_status = false
+
+      -- Merge remaining opts
+      opts.open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" }
+      opts.window = vim.tbl_deep_extend("force", opts.window or {}, {
         mappings = {
           ["<cr>"] = "open_with_window_picker",
           ["o"] = "open_with_window_picker",
           ["s"] = "split_with_window_picker",
           ["v"] = "vsplit_with_window_picker",
-          ["/"] = "none", -- Disable filter, use Telescope (<leader>ff) instead
+          ["/"] = "none",
         },
-      },
-    },
+      })
+    end,
   },
 }

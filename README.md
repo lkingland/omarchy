@@ -71,6 +71,12 @@ ThePrimeagen's [99](https://github.com/ThePrimeagen/99) for targeted AI code rep
 ### VCSigns (replaces gitsigns)
 [vcsigns.nvim](https://github.com/algmyr/vcsigns.nvim) replaces gitsigns.nvim for sign column indicators. VCS-agnostic with native jj support (its best-tested backend). Configured with `target_commit=1` for jj's new+squash workflow. Keymaps: `]h`/`[h` hunk navigation, `<leader>ghu` undo hunk, `<leader>ghd` inline diff, `<leader>ghf` fold around diffs, `]r`/`[r` step through commit history.
 
+### jj.nvim
+[jj.nvim](https://github.com/NicolasGB/jj.nvim) for full Jujutsu command integration inside Neovim. Interactive log buffer (`:J log`), describe editor (`:J desc`), diff splits (`:Jdiff`), squash/rebase, annotations/blame (`:J annotate`), bookmark/tag management, and PR opening.
+
+### neo-tree-jj
+[neo-tree-jj.nvim](https://github.com/Cretezy/neo-tree-jj.nvim) adds a `jj` source to neo-tree showing changed files (added/modified/deleted) from `jj diff --summary`. Replaces the git_status tab in the source selector when in a jj repo.
+
 ### fff.nvim File Finder
 [fff.nvim](https://github.com/dmtrKovalenko/fff.nvim) replaces Snacks picker for file finding and grep. Rust-powered daemon with frecency scoring, typo-resistant fuzzy search, and git status awareness. Overrides `<leader>ff`, `<leader><space>`, `<leader>fF`, `<leader>fg`, and `<leader>/`. Snacks still handles all non-file pickers (help, keymaps, etc.).
 
