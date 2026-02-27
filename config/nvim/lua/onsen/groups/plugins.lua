@@ -56,11 +56,17 @@ function M.get(c)
     BlinkCmpKindOperator = { fg = c.fg_dark },
     BlinkCmpKindTypeParameter = { fg = c.green_muted },
 
-    -- GitSigns
+    -- GitSigns (kept as fallback for vcsigns and other plugins)
     GitSignsAdd = { fg = c.git_add },
     GitSignsChange = { fg = c.git_change },
     GitSignsDelete = { fg = c.git_delete },
     GitSignsCurrentLineBlame = { fg = c.comment },
+
+    -- VCSigns
+    SignAdd = { fg = c.git_add },
+    SignChange = { fg = c.git_change },
+    SignDelete = { fg = c.git_delete },
+    SignCombined = { fg = c.git_change },
 
     -- Indent Blankline
     IblIndent = { fg = c.comment },

@@ -68,6 +68,9 @@ CLAUDE.md with project context and jj workflow instructions for AI coding assist
 ### 99 AI Plugin
 ThePrimeagen's [99](https://github.com/ThePrimeagen/99) for targeted AI code replacement via visual selection. Select code, prompt, get inline replacement via `claude --print`. Keybindings under `<leader>9`. Model set to `claude-sonnet-4-6`.
 
+### VCSigns (replaces gitsigns)
+[vcsigns.nvim](https://github.com/algmyr/vcsigns.nvim) replaces gitsigns.nvim for sign column indicators. VCS-agnostic with native jj support (its best-tested backend). Configured with `target_commit=1` for jj's new+squash workflow. Keymaps: `]h`/`[h` hunk navigation, `<leader>ghu` undo hunk, `<leader>ghd` inline diff, `<leader>ghf` fold around diffs, `]r`/`[r` step through commit history.
+
 ### fff.nvim File Finder
 [fff.nvim](https://github.com/dmtrKovalenko/fff.nvim) replaces Snacks picker for file finding and grep. Rust-powered daemon with frecency scoring, typo-resistant fuzzy search, and git status awareness. Overrides `<leader>ff`, `<leader><space>`, `<leader>fF`, `<leader>fg`, and `<leader>/`. Snacks still handles all non-file pickers (help, keymaps, etc.).
 
