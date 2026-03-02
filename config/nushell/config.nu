@@ -344,13 +344,18 @@ def jll [] {
 # -------------------------
 # Bitwarden (session management)
 # -------------------------
-def --env bw-unlock [] {
-    $env.BW_SESSION = (^bw unlock --raw)
+def bw-unlock [] {
+    ^bw unlock --raw | save -f ~/.config/bw/session
+}
+
+def --wrapped bw [...args] {
+    let session = (^cat ~/.config/bw/session | str trim)
+    ^bw --session $session ...$args
 }
 
 # Jira CLI (token from Bitwarden)
-def jira [...args: string] {
-    with-env { JIRA_API_TOKEN: (^bw get password "jira token" | str trim) } {
+def --wrapped jira [...args] {
+    with-env { JIRA_API_TOKEN: (bw get password "jira token" | str trim) } {
         ^jira ...$args
     }
 }

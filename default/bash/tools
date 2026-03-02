@@ -1,0 +1,13 @@
+# Tool wrappers available in all bash sessions (interactive and non-interactive)
+
+# Bitwarden (session from shared unlock file)
+bw() {
+  local session
+  session=$(<~/.config/bw/session)
+  command bw --session "$session" "$@"
+}
+
+# Jira CLI (token from Bitwarden)
+jira() {
+  JIRA_API_TOKEN=$(bw get password "jira token") command jira "$@"
+}

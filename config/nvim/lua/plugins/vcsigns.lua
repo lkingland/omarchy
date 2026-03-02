@@ -1,5 +1,7 @@
 -- VCS-agnostic sign column (replaces gitsigns.nvim)
 -- Supports jj natively; target_commit=1 fits jj new+squash workflow
+-- Alternative: gauron99/jj-nvim-signs — lighter jj-only signs plugin (single file,
+-- zero deps) but lacks hunk undo, inline diffs, and commit history stepping.
 return {
   -- Disable LazyVim's built-in gitsigns
   { "lewis6991/gitsigns.nvim", enabled = false },
