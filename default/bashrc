@@ -1,3 +1,6 @@
+# Non-interactive tools (available to scripts, Claude Code, etc.)
+source ~/.local/share/omarchy/default/bash/tools
+
 # If not running interactively, don't do anything (leave this at the top of this file)
 [[ $- != *i* ]] && return
 

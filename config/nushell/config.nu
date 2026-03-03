@@ -120,6 +120,7 @@ $env.PATH = ($env.PATH | append $"($env.ANDROID_HOME)/emulator")
 $env.PATH = ($env.PATH | append $"($env.ANDROID_HOME)/build-tools/34.0.0")
 
 $env.EDITOR = "nvim"
+$env.BASH_ENV = $"($env.HOME)/.local/share/omarchy/default/bash/tools"
 
 # LS_COLORS for nushell native ls and eza (Onsen theme)
 # Blue=structure, White=text, Green=binary, Orange=executable
