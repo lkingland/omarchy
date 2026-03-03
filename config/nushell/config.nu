@@ -188,7 +188,7 @@ $env.TIME_STYLE = "+%Y/%m/%d %H:%M"
 # Aliases - General
 # -------------------------
 alias fg = job unfreeze
-alias l = clear
+alias x = clear
 alias e = exit
 alias v = nvim
 alias s = sudo
