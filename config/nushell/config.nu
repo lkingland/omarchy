@@ -187,7 +187,7 @@ $env.TIME_STYLE = "+%Y/%m/%d %H:%M"
 # Aliases - General
 # -------------------------
 alias fg = job unfreeze
-alias c = clear
+alias l = clear
 alias e = exit
 alias v = nvim
 alias s = sudo
@@ -223,7 +223,7 @@ def open [path: string] {
 $env.DIR_STACK = []
 
 # cd wrapper that pushes current dir onto stack before changing
-def --env cdd [dir?: string] {
+def --env c [dir?: string] {
     let target = if ($dir | is-empty) { $env.HOME } else { $dir }
     $env.DIR_STACK = ($env.DIR_STACK | prepend $env.PWD)
     cd $target
@@ -413,6 +413,12 @@ source ~/.cache/mise.nu
 
 # Zoxide (smart cd) - use 'z' to jump to directories
 source ~/.cache/zoxide.nu
+
+# Override z to push current dir onto stack before jumping
+def --env --wrapped z [...rest: string] {
+    $env.DIR_STACK = ($env.DIR_STACK | prepend $env.PWD)
+    __zoxide_z ...$rest
+}
 
 # Starship prompt
 source ~/.cache/starship.nu
