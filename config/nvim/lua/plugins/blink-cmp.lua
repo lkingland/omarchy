@@ -21,7 +21,6 @@ return {
       preset = "none",
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
       ["<C-a>"] = { "show", "show_documentation", "hide_documentation" },
-      ["<C-c>"] = { "hide", "fallback" },
       ["<C-y>"] = { "select_and_accept" },
       ["<CR>"] = { "accept", "fallback" },
       ["<C-n>"] = { "select_next", "fallback" },

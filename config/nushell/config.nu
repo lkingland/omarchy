@@ -197,6 +197,7 @@ alias d = docker
 alias g = git
 alias h = hugr
 alias hd = hugr-dissolve
+alias hp = hugr-projects
 alias hs = hugr-spawn
 alias ht = hugr-status
 alias k = kubectl
