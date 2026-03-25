@@ -1,4 +1,20 @@
-# Tmux Keybindings
+# Tmux Configuration
+
+## Setup
+
+1. Install TPM (Tmux Plugin Manager):
+   ```
+   git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+   ```
+2. Load the config:
+   ```
+   tmux source ~/.config/tmux/tmux.conf
+   ```
+3. Install plugins by pressing `prefix I` (capital I) inside tmux.
+
+To update plugins later, press `prefix U`.
+
+## Keybindings
 
 Prefix: `Ctrl+Space` (fallback: `Ctrl+b`)
 
