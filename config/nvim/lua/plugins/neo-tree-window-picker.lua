@@ -20,6 +20,9 @@ return {
   },
 
   -- neo-tree-jj: jj status source for neo-tree
+  -- PATCH REQUIRED: sources/jj/utils.lua — default `jj diff --summary` only shows
+  -- changes in @. Add `--from "roots(ancestors(@, 2))"` to match vcsigns' target_commit=1
+  -- behavior (diff from grandparent, persists across `jj new`).
   {
     "Cretezy/neo-tree-jj.nvim",
     dependencies = { "nvim-neo-tree/neo-tree.nvim" },

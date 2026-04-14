@@ -10,6 +10,8 @@ return {
   { "algmyr/vclib.nvim", lazy = true },
 
   -- vcsigns
+  -- PATCH REQUIRED: sign.lua — end_row on extmarks does not replicate sign_text
+  -- across lines. Remove end_row optimization and loop per-line instead.
   {
     "algmyr/vcsigns.nvim",
     event = "LazyFile",
