@@ -56,6 +56,9 @@ Faster key repeat, touchpad gestures, workspace navigation (SUPER+Q/E), no shado
 ### Neovim
 LazyVim config with custom keymaps, Harpoon, Go debugging, Obsidian, and vim-tmux-navigator.
 
+### Trouble Symbols Panel
+[trouble.nvim](https://github.com/folke/trouble.nvim) symbols panel (`<leader>cs`) opens on the left as a 40-col split. Disabled `auto_preview` for symbols and lsp modes so cursor movement in the panel no longer follows in the main window — jump only on `<cr>`.
+
 ### Carapace
 Rich shell completions for 1000+ commands, bridged from zsh/fish/bash.
 

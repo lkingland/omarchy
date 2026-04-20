@@ -4,6 +4,7 @@ return {
   opts = function(_, opts)
     opts.modes = opts.modes or {}
     opts.modes.symbols = opts.modes.symbols or {}
+    opts.modes.symbols.auto_preview = false
     opts.modes.symbols.win = {
       type = "split",
       relative = "win",
