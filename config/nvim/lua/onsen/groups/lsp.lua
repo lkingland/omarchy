@@ -36,9 +36,9 @@ function M.get(c)
     DiagnosticSignHint = { fg = c.hint },
     DiagnosticSignOk = { fg = c.green },
 
-    -- LSP References
-    LspReferenceText = { bg = c.bg_highlight },
-    LspReferenceRead = { bg = c.bg_highlight },
+    -- LSP References (slight lift above bg_highlight for visibility)
+    LspReferenceText = { bg = "#152A20" },
+    LspReferenceRead = { bg = "#152A20" },
     LspReferenceWrite = { bg = c.bg_visual },
 
     -- LSP Signature

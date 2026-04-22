@@ -9,18 +9,18 @@ function M.get(c)
     Comment = { fg = c.comment },
 
     -- Constants
-    Constant = { fg = c.green },
-    String = { fg = c.white },
-    Character = { fg = c.white },
-    Number = { fg = c.green },
-    Boolean = { fg = c.green },
-    Float = { fg = c.green },
+    Constant = { fg = c.fg },
+    String = { fg = c.cyan },
+    Character = { fg = c.cyan },
+    Number = { fg = c.fg },
+    Boolean = { fg = c.fg },
+    Float = { fg = c.fg },
 
     -- Identifiers
-    Identifier = { fg = c.green },
-    Function = { fg = c.green },
+    Identifier = { fg = c.fg },
+    Function = { fg = c.fg },
 
-    -- Statements
+    -- Statements (blue: control flow + reserved words)
     Statement = { fg = c.blue },
     Conditional = { fg = c.blue },
     Repeat = { fg = c.blue },
@@ -36,11 +36,11 @@ function M.get(c)
     Macro = { fg = c.blue },
     PreCondit = { fg = c.blue },
 
-    -- Types (italic, de-emphasized)
-    Type = { fg = c.green_muted, italic = true },
+    -- Types (italic only, no color accent)
+    Type = { fg = c.fg, italic = true },
     StorageClass = { fg = c.blue },
-    Structure = { fg = c.green_muted, italic = true },
-    Typedef = { fg = c.green_muted, italic = true },
+    Structure = { fg = c.fg, italic = true },
+    Typedef = { fg = c.fg, italic = true },
 
     -- Special
     Special = { fg = c.orange },

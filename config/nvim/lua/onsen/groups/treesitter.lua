@@ -19,32 +19,32 @@ function M.get(c)
     ["@punctuation.special"] = { fg = c.grey },
 
     -- Literals
-    ["@string"] = { fg = c.white },
-    ["@string.documentation"] = { fg = c.white },
+    ["@string"] = { fg = c.cyan },
+    ["@string.documentation"] = { fg = c.cyan },
     ["@string.regex"] = { fg = c.fg },
-    ["@string.escape"] = { fg = c.cyan },
-    ["@string.special"] = { fg = c.white },
-    ["@string.special.symbol"] = { fg = c.cyan },
+    ["@string.escape"] = { fg = c.cyan_bright },
+    ["@string.special"] = { fg = c.cyan },
+    ["@string.special.symbol"] = { fg = c.cyan_bright },
     ["@string.special.url"] = { fg = c.blue, underline = true },
-    ["@string.special.path"] = { fg = c.white },
+    ["@string.special.path"] = { fg = c.cyan },
 
-    ["@character"] = { fg = c.white },
-    ["@character.special"] = { fg = c.white },
+    ["@character"] = { fg = c.cyan },
+    ["@character.special"] = { fg = c.cyan },
 
-    ["@number"] = { fg = c.green },
-    ["@number.float"] = { fg = c.green },
+    ["@number"] = { fg = c.fg },
+    ["@number.float"] = { fg = c.fg },
 
-    ["@boolean"] = { fg = c.green },
+    ["@boolean"] = { fg = c.fg },
 
-    -- Functions
-    ["@function"] = { fg = c.green },
-    ["@function.builtin"] = { fg = c.green },
-    ["@function.call"] = { fg = c.green },
-    ["@function.macro"] = { fg = c.green },
-    ["@function.method"] = { fg = c.cyan },
-    ["@function.method.call"] = { fg = c.cyan },
+    -- Functions (neutral: function names are just identifiers)
+    ["@function"] = { fg = c.fg },
+    ["@function.builtin"] = { fg = c.fg },
+    ["@function.call"] = { fg = c.fg },
+    ["@function.macro"] = { fg = c.fg },
+    ["@function.method"] = { fg = "#66E8A0" },
+    ["@function.method.call"] = { fg = "#66E8A0" },
 
-    -- Keywords
+    -- Keywords (blue: control flow + reserved words)
     ["@keyword"] = { fg = c.blue },
     ["@keyword.conditional"] = { fg = c.blue },
     ["@keyword.conditional.ternary"] = { fg = c.blue },
@@ -63,31 +63,31 @@ function M.get(c)
     ["@keyword.type"] = { fg = c.blue },
 
     -- Identifiers
-    ["@variable"] = { fg = c.green },
-    ["@variable.builtin"] = { fg = c.green },
-    ["@variable.member"] = { fg = c.cyan },
-    ["@variable.parameter"] = { fg = c.green },
-    ["@variable.parameter.builtin"] = { fg = c.green },
+    ["@variable"] = { fg = c.fg },
+    ["@variable.builtin"] = { fg = c.fg },
+    ["@variable.member"] = { fg = "#66E8A0" },
+    ["@variable.parameter"] = { fg = c.fg },
+    ["@variable.parameter.builtin"] = { fg = c.fg },
 
-    ["@constant"] = { fg = c.green },
-    ["@constant.builtin"] = { fg = c.green },
-    ["@constant.macro"] = { fg = c.green },
+    ["@constant"] = { fg = c.fg },
+    ["@constant.builtin"] = { fg = c.fg },
+    ["@constant.macro"] = { fg = c.fg },
 
-    ["@module"] = { fg = c.green },
-    ["@module.builtin"] = { fg = c.green },
+    ["@module"] = { fg = c.fg },
+    ["@module.builtin"] = { fg = c.fg },
 
     ["@label"] = { fg = c.blue },
 
-    -- Types (italic, de-emphasized)
-    ["@type"] = { fg = c.green_muted, italic = true },
-    ["@type.builtin"] = { fg = c.green_muted, italic = true },
-    ["@type.definition"] = { fg = c.green_muted, italic = true },
+    -- Types (italic only, no color accent)
+    ["@type"] = { fg = c.fg, italic = true },
+    ["@type.builtin"] = { fg = c.fg, italic = true },
+    ["@type.definition"] = { fg = c.fg, italic = true },
     ["@type.qualifier"] = { fg = c.blue },
 
     ["@attribute"] = { fg = c.orange },
     ["@attribute.builtin"] = { fg = c.orange },
 
-    ["@property"] = { fg = c.cyan },
+    ["@property"] = { fg = "#66E8A0" },
 
     -- Operators
     ["@operator"] = { fg = c.fg_dark },
@@ -99,7 +99,7 @@ function M.get(c)
     ["@tag.delimiter"] = { fg = c.fg_dark },
 
     -- Constructor (type-related)
-    ["@constructor"] = { fg = c.green_muted, italic = true },
+    ["@constructor"] = { fg = c.fg, italic = true },
 
     -- Special
     ["@annotation"] = { fg = c.orange },
