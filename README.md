@@ -74,6 +74,9 @@ ThePrimeagen's [99](https://github.com/ThePrimeagen/99) for targeted AI code rep
 ### jj Diff Viewers
 `jj show` / `jj diff` use git-style unified diffs piped through [delta](https://dandavison.github.io/delta/) for syntax highlighting. Difftastic remains available on demand via `jj ds <rev>` / `jj dd` aliases (structural/language-aware diff). For interactive multi-file review use `hunk show <rev>` / `hunk diff`.
 
+### Linode CLI Token via Bitwarden
+Nushell wrapper for `linode-cli` fetches `LINODE_CLI_TOKEN` from the Bitwarden vault (key `linode-cli-token`) on each invocation, instead of letting linode-cli persist it plaintext in `~/.config/linode-cli`. Token only exists in env for the duration of the call. Requires `bw unlock` first.
+
 ### VCSigns (replaces gitsigns)
 [vcsigns.nvim](https://github.com/algmyr/vcsigns.nvim) replaces gitsigns.nvim for sign column indicators. VCS-agnostic with native jj support (its best-tested backend). Configured with `target_commit=1` for jj's new+squash workflow. Keymaps: `]h`/`[h` hunk navigation, `<leader>ghu` undo hunk, `<leader>ghd` inline diff, `<leader>ghf` fold around diffs, `]r`/`[r` step through commit history.
 

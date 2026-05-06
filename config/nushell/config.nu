@@ -432,3 +432,16 @@ source $"($nu.cache-dir)/carapace.nu"
 # Atuin (fish-style history with fuzzy search)
 # Ctrl+R for fuzzy search, deduplication, shared history
 source ~/.cache/atuin.nu
+
+# -------------------------
+# Secrets (Bitwarden CLI)
+# -------------------------
+
+# Fetch the Linode API token from the Bitwarden vault on each invocation
+# rather than persisting it plaintext in ~/.config/linode-cli. The token only
+# lives in the env for the duration of the call. Requires `bw unlock` first.
+def --wrapped linode-cli [...args] {
+    with-env { LINODE_CLI_TOKEN: (bw get password linode-cli-token) } {
+        ^linode-cli ...$args
+    }
+}
