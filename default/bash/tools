@@ -11,3 +11,8 @@ bw() {
 jira() {
   JIRA_API_TOKEN=$(bw get password "jira token") command jira "$@"
 }
+
+# Linode CLI (token from Bitwarden)
+linode-cli() {
+  LINODE_CLI_TOKEN=$(bw get password linode-cli-token) command linode-cli "$@"
+}
