@@ -27,6 +27,10 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/late
 # Pager settings (better git diff, man pages, etc.)
 export LESS="-R --no-init --quit-if-one-screen"
 
+# Color man pages with bat
+export MANROFFOPT="-c"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 # GPG agent for SSH authentication (YubiKey)
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="/run/user/1000/gnupg/S.gpg-agent.ssh"
