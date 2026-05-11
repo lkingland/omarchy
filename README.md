@@ -35,6 +35,9 @@ Replaces bash with [Nushell](https://www.nushell.sh/) featuring vi mode, structu
 ### YubiKey SSH Authentication
 GPG agent configured for SSH authentication via hardware security key.
 
+### pcscd Polkit Rule
+`default/polkit/99-pcscd-wheel.rules` allows `wheel` group users to access pcscd without an active logind session. pcscd 2.4.x enforces the `org.debian.pcsc-lite.access_pcsc` polkit action and only grants it to processes in an active session, but `gpg-agent`/`scdaemon` reparent to systemd and have no session — so YubiKey access (and thus ssh-via-GPG) was being silently rejected. Installed by `install/config/gpg-agent.sh`.
+
 ### Tokyo Night OLED Theme
 Custom theme with true black (#000000) backgrounds for OLED displays.
 
