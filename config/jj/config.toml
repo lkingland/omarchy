@@ -1,7 +1,15 @@
 #:schema https://docs.jj-vcs.dev/latest/config-schema.json
 
 [ui]
-diff-formatter = "difft"
+# Default: git-style unified diff, syntax-highlighted via delta.
+# For structural/language-aware diff, use `jj ds <rev>` / `jj dd` (difftastic).
+# For interactive multi-file review, use `hunk show <rev>` / `hunk diff`.
+diff-formatter = ":git"
+pager = "delta"
+
+[aliases]
+ds = ["show", "--tool", "difft"]
+dd = ["diff", "--tool", "difft"]
 
 [user]
 name = "Luke Kingland"
