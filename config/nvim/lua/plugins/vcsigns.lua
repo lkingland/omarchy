@@ -1,5 +1,8 @@
 -- VCS-agnostic sign column (replaces gitsigns.nvim)
--- Supports jj natively; target_commit=1 fits jj new+squash workflow
+-- Supports jj natively; target_commit=0 shows changes in @ only (the current change).
+-- Note: vcsigns README suggests target_commit=1 for jj new+squash flow, which shows
+-- the combined diff of @ and @- (revset @-::@) — useful when building up a change
+-- across two revisions but over-broad if you only want "what's in @".
 -- Alternative: gauron99/jj-nvim-signs — lighter jj-only signs plugin (single file,
 -- zero deps) but lacks hunk undo, inline diffs, and commit history stepping.
 return {
@@ -17,7 +20,7 @@ return {
     event = "LazyFile",
     config = function()
       require("vcsigns").setup({
-        target_commit = 1,
+        target_commit = 0,
       })
 
       local actions = require("vcsigns.actions")
