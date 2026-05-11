@@ -173,10 +173,12 @@ $env.LS_COLORS = ([
 ] | str join ":")
 
 # GPG agent for SSH authentication (YubiKey)
-# smartsocket proxies to remote or local agent automatically
+# smartsocket owns S.gpg-agent{,.ssh} and routes to either the
+# SSH-forwarded remote agent or a socket-activated local gpg-agent.
+# Do NOT launch a free-running gpg-agent here — it would steal the
+# socket files away from smartsocket on rebind.
 $env.GPG_TTY = (tty)
 $env.SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh"
-gpgconf --launch gpg-agent
 $env.VISUAL = "nvim"
 $env.SUDO_EDITOR = "nvim"
 $env.GIT_EXTERNAL_DIFF = "difft"

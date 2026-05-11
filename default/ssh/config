@@ -1,5 +1,9 @@
-# Update GPG agent TTY before SSH connections (for YubiKey pinentry)
-Match host * exec "gpg-connect-agent UPDATESTARTUPTTY /bye"
+# Update GPG agent TTY before SSH connections (for YubiKey pinentry).
+# --no-autostart prevents gpg-connect-agent from spawning a free-running
+# gpg-agent daemon that would steal smartsocket's socket files. With
+# smartsocket installed, the local gpg-agent is socket-activated by
+# systemd via gpg-agent-local.service.
+Match host * exec "gpg-connect-agent --no-autostart UPDATESTARTUPTTY /bye"
 
 # Apparently SSH connections need a keepalive
 ServerAliveInterval 30
