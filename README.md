@@ -89,8 +89,8 @@ Wrapper functions in both nushell (`config/nushell/config.nu`) and bash (`defaul
 ### neo-tree-jj
 [neo-tree-jj.nvim](https://github.com/Cretezy/neo-tree-jj.nvim) adds a `jj` source to neo-tree showing changed files (added/modified/deleted) from `jj diff --summary`. Replaces the git_status tab in the source selector when in a jj repo.
 
-### fff.nvim File Finder
-[fff.nvim](https://github.com/dmtrKovalenko/fff.nvim) replaces Snacks picker for file finding and grep. Rust-powered daemon with frecency scoring, typo-resistant fuzzy search, and git status awareness. Overrides `<leader>ff`, `<leader><space>`, `<leader>fF`, `<leader>fg`, and `<leader>/`. Snacks still handles all non-file pickers (help, keymaps, etc.).
+### fff.nvim File Finder (currently disabled)
+[fff.nvim](https://github.com/dmtrKovalenko/fff.nvim) was configured to replace the Snacks picker for file finding and grep (Rust-powered daemon with frecency scoring, typo-resistant fuzzy search, git status awareness). **Disabled 2026-05-14** because it hangs nvim startup when multiple concurrent Claude Code sessions are running `fff-mcp` — both share the same `~/.cache/nvim/fff_nvim/` LMDB and the plugin deadlocks waiting on locks held by the MCP daemons. Defaults revert to Snacks picker for `<leader>ff`, `<leader><space>`, `<leader>fF`, `<leader>fg`, and `<leader>/`.
 
 ### Default Browser
 Brave set as default browser for HTTP/HTTPS links.

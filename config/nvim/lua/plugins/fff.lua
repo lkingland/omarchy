@@ -1,7 +1,13 @@
 -- fff.nvim: Rust-powered fuzzy file finder with frecency scoring
 -- Replaces Snacks picker for file finding and grep only
+--
+-- Disabled 2026-05-14: hangs nvim startup when multiple Claude Code sessions
+-- are concurrently running fff-mcp. Both share ~/.cache/nvim/fff_nvim/ LMDB,
+-- and fff.nvim deadlocks waiting on locks held by the MCP daemons. Falls back
+-- to LazyVim's Snacks picker (default `<leader>ff`, `<leader>fg`, etc.).
 return {
   "dmtrKovalenko/fff.nvim",
+  enabled = false,
   build = function()
     require("fff.download").download_or_build_binary()
   end,
