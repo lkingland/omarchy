@@ -45,7 +45,7 @@ Custom theme with true black (#000000) backgrounds for OLED displays.
 Two-line prompt with jj/git status, kubernetes context, and Tokyo Night colors.
 
 ### Tmux
-Terminal multiplexer with Tokyo Night theme and vim-tmux-navigator. Dynamic session switching via `prefix s 1-9,0` (sorted by creation order), fzf popup selector (`prefix F`), indexed tree view (`prefix f`), and last-session toggle (`prefix l`). Directional pane swapping with `prefix H/J/K/L` (complements `Ctrl+hjkl` navigation). Session persistence (resurrect/continuum) disabled due to instability. Window-status pills use rounded powerline caps (U+E0B6/E0B4) with a `󰔱` zoom indicator on the active window.
+Terminal multiplexer with Tokyo Night theme and vim-tmux-navigator. Session ordering is stable across reboots — pinned sessions (per the machine-local file `~/.config/tmux/session-order`, one name per line) appear first, then alphabetical. The repo ships only the script (`sessions-ordered`) and a template (`session-order.example`); the actual pin list is intentionally machine-local. `prefix f` opens fzf with the ordered list; `prefix s 1-9,0` jumps to the Nth session in that order. Also: `prefix F` for raw alphabetical fzf, `prefix l` for last-session toggle. Directional pane swapping with `prefix H/J/K/L` (complements `Ctrl+hjkl` navigation). Session persistence (resurrect/continuum) disabled due to instability. Window-status pills use rounded powerline caps (U+E0B6/E0B4) with a `󰔱` zoom indicator on the active window.
 
 ### Vim-style Window Navigation
 Hyprland keybindings: `SUPER+HJKL` for focus, `SUPER+SHIFT+HJKL` for movement. Defaults `SUPER+J` (toggle split) and `SUPER+K` (keybindings) relocated to `SUPER+CTRL+J/K`.
