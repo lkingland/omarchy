@@ -54,7 +54,7 @@ Hyprland keybindings: `SUPER+HJKL` for focus, `SUPER+SHIFT+HJKL` for movement. D
 Status bar positioned at bottom with auto-hide, plus RAM and disk usage indicators.
 
 ### Hyprland
-Faster key repeat, touchpad gestures, workspace navigation (SUPER+Q/E), no shadows, smart gaps.
+Faster key repeat, touchpad gestures, workspace navigation (SUPER+Q/E), no shadows, smart gaps. `togglesplit` binding updated to use `layoutmsg` dispatcher (required since Hyprland 0.54).
 
 ### Neovim
 LazyVim config with custom keymaps, Harpoon, Go debugging, Obsidian, and vim-tmux-navigator.
