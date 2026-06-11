@@ -1,0 +1,13 @@
+[Unit]
+Description=ComfyUI (SDXL image generation, ROCm)
+# Tailnet bind (100.101.144.30): tolerate tailscale coming up after login.
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=%h/sh/comfyui.sh
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
