@@ -1,0 +1,12 @@
+[Unit]
+Description=Watch wiki projects and notify hamr-mobile on changes
+After=hamr-mobile.service
+
+[Service]
+Type=simple
+ExecStart=%h/go/bin/hamr-projects watch https://hamr.kingland.io:8444/api/invalidate
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

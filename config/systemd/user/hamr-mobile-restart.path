@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch hamr-mobile binary for changes
+
+[Path]
+PathChanged=/home/drekar/go/bin/hamr-mobile
+
+[Install]
+WantedBy=default.target

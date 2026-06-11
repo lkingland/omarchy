@@ -1,0 +1,6 @@
+[Unit]
+Description=Restart hamr-mobile after binary change
+
+[Service]
+Type=oneshot
+ExecStart=systemctl --user restart hamr-mobile.service

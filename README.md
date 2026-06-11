@@ -23,6 +23,18 @@ Use the omarchy-sync script (in ~/sh) which:
 
 ## Customizations
 
+### Hamr user services
+`config/systemd/user/hamr-*` — the 8 systemd user units for the Hamr UIs and
+their watchers: `hamr-ui` (:8443) / `hamr-mobile` (:8444) servers,
+`hamr{,-mobile}-projects-watch` (wiki→UI invalidation), and the
+`hamr-{ui,mobile}-restart.{path,service}` pairs that auto-restart each UI when
+its `~/go/bin` binary is rebuilt. Applied by `config.sh` like all of `config/`;
+after a fresh rebuild, activate once with:
+`systemctl --user daemon-reload && systemctl --user enable --now hamr-ui hamr-mobile hamr-projects-watch hamr-mobile-projects-watch hamr-ui-restart.path hamr-mobile-restart.path`.
+(Renamed from `hugr-*` in the P3 rename, 2026-06-11. The services still read
+the legacy `~/.config/hugr/env` + `~/.local/state/hugr/certs` until Hamr#81
+migrates code+data dirs together.)
+
 ### Git Config
 Default branch set to `main`, commit signing enabled, user identity configured.
 

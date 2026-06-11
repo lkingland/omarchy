@@ -1,0 +1,15 @@
+[Unit]
+Description=Hamr mobile web UI server
+After=network-online.target
+
+[Service]
+Type=simple
+# NOTE: the binary still reads legacy ~/.config/hugr + ~/.local/state/hugr/certs;
+# dir migration is tracked as its own issue (code + data move together).
+EnvironmentFile=%h/.config/hugr/env
+ExecStart=%h/go/bin/hamr-mobile serve --address hamr.kingland.io:8444
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch hamr-ui binary for changes
+
+[Path]
+PathChanged=/home/drekar/go/bin/hamr-ui
+
+[Install]
+WantedBy=default.target
