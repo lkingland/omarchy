@@ -197,11 +197,11 @@ alias v = nvim
 alias s = sudo
 alias d = docker
 alias g = git
-alias h = hugr
-alias hd = hugr-dissolve
-alias hp = hugr-projects
-alias hs = hugr-spawn
-alias ht = hugr-status
+alias h = hamr
+alias hd = hamr-dissolve
+alias hp = hamr-projects
+alias hs = hamr-spawn
+alias ht = hamr-status
 alias k = kubectl
 
 # Create directory and cd into it
