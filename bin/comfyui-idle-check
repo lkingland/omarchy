@@ -39,6 +39,16 @@ fi
 
 # idle this tick
 if (( now - last_busy >= IDLE_SECS )); then
+  # TOCTOU guard (coder.5 hit this under rapid gen): a generation may have begun
+  # since the sample at the top, and `stop` would kill in-flight work. Re-poll
+  # immediately before stopping; abort if work appeared. Fail-safe: an
+  # inconclusive/failed re-poll counts as BUSY (never stop on a bad read).
+  qr2="$(curl -sf --max-time 5 "$API/prompt" 2>/dev/null \
+        | python3 -c 'import json,sys; print(int(json.load(sys.stdin).get("exec_info",{}).get("queue_remaining",1)))' 2>/dev/null)" || qr2=1
+  if (( qr2 > 0 )); then
+    printf '%s %s\n' "$hist" "$now" > "$STATE"   # work in flight — reset the idle clock, do NOT stop
+    exit 0
+  fi
   systemctl --user stop comfyui
   rm -f "$STATE"
   echo "comfyui-idle-check: stopped ComfyUI after $(( (now - last_busy) / 60 ))m idle (freed GPU)"
