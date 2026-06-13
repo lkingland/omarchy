@@ -35,6 +35,22 @@ after a fresh rebuild, activate once with:
 the legacy `~/.config/hugr/env` + `~/.local/state/hugr/certs` until Hamr#81
 migrates code+data dirs together.)
 
+### ComfyUI (SDXL image backend) — lazy-start + idle-stop
+`config/systemd/user/comfyui*` + `bin/comfyui-idle-check` — the local SDXL image
+backend (ComfyUI, ROCm, port 8188) for `hamr-img` and agent image generation
+(Hamr epic #45, decision D3). **Not** always-on — the single GPU isn't pinned:
+
+- `comfyui.service` is **lazy-start** (`static`, never boot-enabled). Start on
+  demand: `systemctl --user start comfyui` — it blocks until the API is actually
+  serving (an `ExecStartPost` readiness poll), so callers get start==ready.
+- `comfyui-idle.timer` (enabled) runs `comfyui-idle-check` every 3 min, which
+  **stops** ComfyUI after `COMFYUI_IDLE_SECS` (default 1200 = 20 min) with no
+  image-gen activity (queue empty AND `/history` flat), freeing the GPU.
+- `hamr-img` owns no timer — the whole lifecycle lives in these units.
+
+After a fresh rebuild, enable just the timer (NOT comfyui):
+`systemctl --user daemon-reload && systemctl --user enable --now comfyui-idle.timer`.
+
 ### Git Config
 Default branch set to `main`, commit signing enabled, user identity configured.
 

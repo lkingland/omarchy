@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# comfyui-idle-check — idle-stop half of ComfyUI's lazy-start+idle-stop policy
+# (Hamr epic #45 / 45-1, decision D3). Run by comfyui-idle.timer every few minutes.
+#
+# Stops the comfyui user unit after COMFYUI_IDLE_SECS with no image-gen activity,
+# so the single shared GPU isn't pinned always-resident. hamr-img owns no timer —
+# the whole lifecycle lives here; it just `systemctl --user start comfyui`s on demand.
+#
+# Activity signal (no built-in idle exit in ComfyUI): queue non-empty OR the
+# /history count grew since the last check. State (last history count + last-busy
+# epoch) persists in $XDG_RUNTIME_DIR. No-op when the unit is down or still loading.
+set -euo pipefail
+
+IDLE_SECS="${COMFYUI_IDLE_SECS:-1200}"          # 20 min warm-idle before stop
+API="${COMFYUI_API:-http://127.0.0.1:8188}"
+STATE="${XDG_RUNTIME_DIR:-/tmp}/comfyui-idle.state"
+
+# Down? Nothing to stop; clear state so the next start begins fresh.
+systemctl --user is-active --quiet comfyui || { rm -f "$STATE"; exit 0; }
+
+# Probe. If the API isn't answering yet (cold model load in progress), treat as
+# busy — never stop mid-load. A failed probe exits 0 (no-op this tick).
+qr="$(curl -sf --max-time 5 "$API/prompt" 2>/dev/null \
+      | python3 -c 'import json,sys; print(int(json.load(sys.stdin).get("exec_info",{}).get("queue_remaining",0)))' 2>/dev/null)" || exit 0
+hist="$(curl -sf --max-time 5 "$API/history" 2>/dev/null \
+      | python3 -c 'import json,sys; print(len(json.load(sys.stdin)))' 2>/dev/null)" || exit 0
+
+now="$(date +%s)"
+prev_hist=0; last_busy="$now"
+if [[ -f "$STATE" ]]; then
+  read -r prev_hist last_busy < "$STATE" 2>/dev/null || { prev_hist=0; last_busy="$now"; }
+fi
+
+if (( qr > 0 || hist > prev_hist )); then
+  # active this tick → reset the idle clock
+  printf '%s %s\n' "$hist" "$now" > "$STATE"
+  exit 0
+fi
+
+# idle this tick
+if (( now - last_busy >= IDLE_SECS )); then
+  systemctl --user stop comfyui
+  rm -f "$STATE"
+  echo "comfyui-idle-check: stopped ComfyUI after $(( (now - last_busy) / 60 ))m idle (freed GPU)"
+else
+  # still within the warm-idle grace window — carry the busy timestamp forward
+  printf '%s %s\n' "$hist" "$last_busy" > "$STATE"
+fi

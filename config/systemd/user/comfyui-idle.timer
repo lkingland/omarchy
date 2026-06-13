@@ -1,0 +1,11 @@
+[Unit]
+Description=Periodic ComfyUI idle check (lazy-start+idle-stop, epic #45 D3)
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=3min
+# The timer is always enabled; the check no-ops while ComfyUI is down, and stops
+# it once it has been idle past COMFYUI_IDLE_SECS. Cheap (a curl every 3 min).
+
+[Install]
+WantedBy=timers.target

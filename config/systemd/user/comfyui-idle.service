@@ -1,0 +1,6 @@
+[Unit]
+Description=ComfyUI idle check — stop the unit when idle to free the GPU (epic #45 D3)
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/share/omarchy/bin/comfyui-idle-check

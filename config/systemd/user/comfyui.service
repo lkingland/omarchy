@@ -1,13 +1,19 @@
 [Unit]
-Description=ComfyUI (SDXL image generation, ROCm)
+Description=ComfyUI (SDXL image generation, ROCm) — lazy-start, idle-stopped
 # Tailnet bind (100.101.144.30): tolerate tailscale coming up after login.
 After=network-online.target
 
 [Service]
 Type=simple
 ExecStart=%h/sh/comfyui.sh
+# Block `systemctl --user start comfyui` until the API actually serves (SDXL
+# loaded), so hamr-img can treat start as "ready". ~120s budget for cold load.
+ExecStartPost=/usr/bin/env bash -c 'for i in $(seq 1 60); do curl -sf -o /dev/null --max-time 3 http://127.0.0.1:8188/system_stats && exit 0; sleep 2; done; exit 1'
+TimeoutStartSec=180
 Restart=on-failure
 RestartSec=10
 
-[Install]
-WantedBy=default.target
+# NO [Install]/WantedBy — lazy-start only. ComfyUI is NOT enabled at boot; it is
+# started on demand (hamr-img: `systemctl --user start comfyui`) and stopped when
+# idle by comfyui-idle.timer (D3 persistence policy, epic #45). Enable the TIMER,
+# never this unit.
