@@ -17,3 +17,11 @@ RestartSec=10
 # started on demand (hamr-img: `systemctl --user start comfyui`) and stopped when
 # idle by comfyui-idle.timer (D3 persistence policy, epic #45). Enable the TIMER,
 # never this unit.
+#
+# READINESS CONTRACT (Hamr #106): a COLD start (unit was stopped) blocks until
+# :8188 serves via ExecStartPost above, so start==ready. BUT a start issued while
+# the unit is already active is a systemd no-op that returns instantly — and an
+# idle-stop could then race it. So callers MUST poll :8188 readiness after start
+# and retry, never trust the start return alone (hamr-img's EnsureUp does this).
+# This is inherent to any lazy + idle-stopped service; the idle-check guards the
+# in-flight side (re-polls the queue before stopping, never kills a running gen).
