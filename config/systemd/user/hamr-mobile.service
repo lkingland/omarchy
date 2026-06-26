@@ -4,9 +4,9 @@ After=network-online.target
 
 [Service]
 Type=simple
-# NOTE: the binary still reads legacy ~/.config/hugr + ~/.local/state/hugr/certs;
+# NOTE: the binary reads ~/.config/hamr + ~/.local/state/hamr/certs;
 # dir migration is tracked as its own issue (code + data move together).
-EnvironmentFile=%h/.config/hugr/env
+EnvironmentFile=%h/.config/hamr/env
 ExecStart=%h/go/bin/hamr-mobile serve --address hamr.kingland.io:8444
 Restart=on-failure
 RestartSec=5
