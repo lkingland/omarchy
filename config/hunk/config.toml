@@ -5,7 +5,10 @@
 # robust green. Diff content reuses the converged vcsigns onsen colors
 # (green=added / red=removed, faint line blocks + brighter changed-token bands).
 #
-# Symlinked to ~/.config/hunk/config.toml. Activated by theme = "custom".
+# Stowed to ~/.config/hunk/config.toml by install/config/config.sh (like the other
+# config/* entries). Activated by theme = "custom". Note: the onsen palette is
+# referenced in colors.toml; if a different omarchy theme is active this still
+# paints onsen — move to themes/<name>/ + a theme hook if per-theme is wanted.
 
 theme = "custom"
 
