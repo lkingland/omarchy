@@ -62,11 +62,20 @@ function M.get(c)
     GitSignsDelete = { fg = c.git_delete },
     GitSignsCurrentLineBlame = { fg = c.comment },
 
-    -- VCSigns
+    -- VCSigns (gutter signs)
     SignAdd = { fg = c.git_add },
     SignChange = { fg = c.git_change },
     SignDelete = { fg = c.git_delete },
     SignCombined = { fg = c.git_change },
+
+    -- VCSigns inline diff (<leader>ghd). Without these, the word-level groups
+    -- fall back to DiffText (orange) for BOTH adds and deletes — an unreadable
+    -- wash. Define them so the hunk reads green=added / red=removed, with the
+    -- *Text* groups layering brighter emphasis over the full-line groups.
+    VcsignsDiffAdd = { bg = c.diff_add_bg }, -- added lines (bg only; syntax shows)
+    VcsignsDiffTextAdd = { bg = c.diff_add_text_bg, bold = true }, -- added words
+    VcsignsDiffDelete = { fg = c.diff_del_fg, bg = c.diff_del_bg }, -- removed lines
+    VcsignsDiffTextDelete = { fg = c.red_bright, bg = c.diff_del_text_bg, bold = true }, -- removed words
 
     -- Indent Blankline
     IblIndent = { fg = c.comment },

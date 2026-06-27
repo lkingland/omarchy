@@ -56,6 +56,13 @@ M.colors.git_add = M.colors.green
 M.colors.git_change = M.colors.orange
 M.colors.git_delete = M.colors.red
 
+-- Diff backgrounds (vcsigns inline hunk view, <leader>ghd)
+M.colors.diff_add_bg = "#08210F"       -- added lines (full-line tint, whisper-quiet)
+M.colors.diff_add_text_bg = "#143A23"  -- added words (emphasis)
+M.colors.diff_del_fg = "#C98686"       -- removed line text
+M.colors.diff_del_bg = "#1B0909"       -- removed lines (virtual, whisper-quiet)
+M.colors.diff_del_text_bg = "#5E1F1F"  -- removed words (emphasis)
+
 -- Diagnostic colors
 M.colors.error = M.colors.red
 M.colors.warning = M.colors.orange
