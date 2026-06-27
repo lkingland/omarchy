@@ -13,10 +13,13 @@ return {
   { "algmyr/vclib.nvim", lazy = true },
 
   -- vcsigns
-  -- PATCH REQUIRED: sign.lua — end_row on extmarks does not replicate sign_text
-  -- across lines. Remove end_row optimization and loop per-line instead.
+  -- FORK (lkingland/vcsigns.nvim, main): one-commit fix + regression test on top
+  -- of upstream — sign.lua's end_row does not replicate sign_text across rows, so
+  -- multi-line hunks only showed a gutter sign on line 1; we place one extmark per
+  -- line instead. Fork main is PR-ready (open it upstream); once merged, switch
+  -- back to "algmyr/vcsigns.nvim". Plugin dir is a colocated jj repo.
   {
-    "algmyr/vcsigns.nvim",
+    "lkingland/vcsigns.nvim",
     event = "LazyFile",
     config = function()
       require("vcsigns").setup({
@@ -38,6 +41,7 @@ return {
       -- Hunk operations
       map({ "n", "v" }, "<leader>ghu", function() actions.hunk_undo(0) end, "Undo Hunk")
       map("n", "<leader>ghd", function() actions.toggle_hunk_diff(0) end, "Toggle Inline Diff")
+      map("n", "<leader>ghv", function() actions.diffview(0) end, "Hunk Diff (side-by-side)")
       map("n", "<leader>ghf", function() require("vcsigns.fold").toggle(0) end, "Toggle Fold Around Diffs")
 
       -- Diff target navigation (step through commit history)

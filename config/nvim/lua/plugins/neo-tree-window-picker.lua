@@ -19,12 +19,15 @@ return {
     end,
   },
 
-  -- neo-tree-jj: jj status source for neo-tree
-  -- PATCH REQUIRED: sources/jj/utils.lua — default `jj diff --summary` only shows
-  -- changes in @. Add `--from "roots(ancestors(@, 2))"` to match vcsigns' target_commit=1
-  -- behavior (diff from grandparent, persists across `jj new`).
+  -- neo-tree-jj: jj status source for neo-tree.
+  -- FORK (lkingland/neo-tree-jj.nvim): upstream Cretezy is dead (last commit 2024)
+  -- and get_changes()'s diff revset is hardcoded, so we carry a one-commit patch
+  -- widening it to `--from "roots(ancestors(@, 2))"` — matches vcsigns'
+  -- target_commit=1 (diff from grandparent, persists across `jj new`).
+  -- To pull upstream later: `git fetch upstream && git rebase upstream/main` in the
+  -- plugin dir, then `git push --force-with-lease origin main`.
   {
-    "Cretezy/neo-tree-jj.nvim",
+    "lkingland/neo-tree-jj.nvim",
     dependencies = { "nvim-neo-tree/neo-tree.nvim" },
   },
 
