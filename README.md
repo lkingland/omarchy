@@ -129,6 +129,14 @@ Local LLM inference via [Ollama](https://ollama.com) with ROCm backend for AMD R
 - `ollama` user in `render` and `video` groups
 - Kernel parameter `amdgpu.cwsr_enable=0` to prevent MES firmware hangs on kernel 6.18+ with ROCm 7.x
 
+### Claude AI skill — suppressed in favor of the Hamr `dotfiles` skill
+`install/config/omarchy-ai-skill.sh` no longer links the upstream `omarchy` skill
+into `~/.claude/skills/` (the `.agents`/`.codex`/`.pi` links are unchanged). The
+Hamr system carries its own `dotfiles` skill that absorbs and refreshes the
+omarchy guidance and adds the fork/dotfiles workflow, so linking the upstream
+copy for Claude double-triggered. Restore the removed `ln` line in that script to
+re-enable it. (Hamr #332, 2026-07-14.)
+
 ## License
 
 Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).
